@@ -15,13 +15,14 @@ sources:
                   - refs/tags/*:refs/tags/upstream/*
 
 ref: origin/master
+# ref: origin/mtx/wip1
 
 buildsystem: cmake
 
 depends:
     - qt6/qtlocation
     - kde/libraries/polkit-qt-1
-    - kde/kf6/kdeclarative
+    - kde/kf6/kdeclarative              # really needed ?
     - kde/kf6/prison
     - kde/qcoro6
     - sonicde/sonic-win

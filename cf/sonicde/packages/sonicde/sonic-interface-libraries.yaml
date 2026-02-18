@@ -14,7 +14,9 @@ sources:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
 
-ref: origin/master
+# ref: origin/master
+# still have a bunch of unmerged commits needed for build
+ref: origin/mtx/wip1
 
 buildsystem: cmake
 
