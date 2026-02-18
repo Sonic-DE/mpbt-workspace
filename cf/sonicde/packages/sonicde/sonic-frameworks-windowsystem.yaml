@@ -13,6 +13,12 @@ sources:
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
+        config:
+            autopick.enabled:     "true"
+            autopick.upstream:    upstream/master
+            autopick.master:      ${ref}
+            autopick.tracker:     origin/tracking/master
+            advice.detachedHead:  "false"
 
 ref: origin/master
 

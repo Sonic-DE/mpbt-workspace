@@ -15,6 +15,12 @@ sources:
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
+        config:
+            autopick.enabled:     "true"
+            autopick.upstream:    upstream/Plasma/6.6
+            autopick.master:      ${ref}
+            autopick.tracker:     origin/tracking/plasma-6.6
+            advice.detachedHead:  "false"
 
 ref: origin/master
 
