@@ -1,0 +1,35 @@
+#!/bin/bash
+
+REPOS="
+    sonic-audio-applet-pulse
+    sonic-desktop-interface
+    sonic-frameworks-auth
+    sonic-screen
+    sonic-frameworks-io
+    sonic-keybind-daemon
+    sonic-screenlocker
+    sonic-workspace
+    sonic-workspace-addons
+    sonic-frameworks-keybind
+    sonic-mobile-interface
+    sonic-sysguard-library
+    sonic-frameworks-runner
+    sonic-network-manager
+    sonic-system-info
+    sonic-frameworks-windowsystem
+    sonic-win
+    sonic-frameworks-core-addons
+    sonic-interface-libraries
+    silver-theme
+    sonic-screen-library
+    sonic-activities
+    sonic-decoration
+    sonic-frameworks-io-extras
+    sonic-frameworks-quick-ui
+"
+
+SCRIPT_DIR=`pwd`/scripts
+
+for i in $REPOS ; do
+    ( cd _WORK_/sources/sonicde/$i && $SCRIPT_DIR/git-autopick )
+done

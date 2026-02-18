@@ -1,0 +1,90 @@
+#!/bin/bash
+
+set -e
+
+TEMP_BRANCH="pr/sync-with-upstream"
+
+WD=`pwd`
+REPONAME=$(basename "$WD")
+
+die() {
+    echo "[$REPONAME] $*" >&2
+    exit 1
+}
+
+msg() {
+    echo "[$REPONAME] $*" >&2
+}
+
+## load configuration
+AUTOPICK_UPSTREAM=`git config autopick.upstream || true`
+AUTOPICK_MASTER=`  git config autopick.master   || true`
+AUTOPICK_TRACKER=` git config autopick.tracker  || true`
+AUTOPICK_ENABLED=` git config autopick.enabled  || true`
+
+AUTOPICK_UPSTREAM_REMOTE=`echo "$AUTOPICK_UPSTREAM" | cut -d/ -f1`
+AUTOPICK_UPSTREAM_BRANCH=`echo "$AUTOPICK_UPSTREAM" | cut -d/ -f2-`
+AUTOPICK_MASTER_REMOTE=`  echo "$AUTOPICK_MASTER"   | cut -d/ -f1`
+AUTOPICK_MASTER_BRANCH=`  echo "$AUTOPICK_MASTER"   | cut -d/ -f2-`
+AUTOPICK_TRACKER_REMOTE=` echo "$AUTOPICK_TRACKER"  | cut -d/ -f1`
+AUTOPICK_TRACKER_BRANCH=` echo "$AUTOPICK_TRACKER"  | cut -d/ -f2-`
+
+# check whether autopick is enabled for this repo
+if [ "$AUTOPICK_ENABLED" != "true" ]; then
+#    die "skipped unconfigured"
+    exit 0
+fi
+
+[ "$AUTOPICK_UPSTREAM" ] || die "missing autopick.upstream git config"
+[ "$AUTOPICK_MASTER" ] || die "missing autopick.master git config"
+[ "$AUTOPICK_TRACKER" ] || die "missing autopick.tracker git config"
+
+CURRENT_UPSTREAM=`git rev-parse "$AUTOPICK_UPSTREAM" 2>/dev/null` || die "cant get upstream branch SHA"
+CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || die "cant get tracker branch SHA"
+CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
+
+if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
+    msg "already synced"
+    exit 0
+fi
+
+# update tracker branch to latest upstream
+update_tracker() {
+    msg "=== updating tracker branch $AUTOPICK_TRACKER to ${CURRENT_UPSTREAM}"
+    git push "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:${AUTOPICK_TRACKER_BRANCH}"
+}
+
+# check whether remote temp branch already exists
+check_work_waiting() {
+    git remote prune origin
+    if git show-branch remotes/origin/$TEMP_BRANCH 2>/dev/null >/dev/null ; then
+        msg "=== remote $TEMP_BRANCH still exists. skipping for now"
+        exit 0
+    fi
+}
+
+check_work_waiting
+
+msg "=== creating working branch"
+git checkout "$AUTOPICK_MASTER"
+git branch -D "$TEMP_BRANCH" || true
+git checkout "$AUTOPICK_UPSTREAM" -b "$TEMP_BRANCH"
+
+msg "=== rebasing"
+if ! git rebase $CURRENT_TRACKER --onto $CURRENT_MASTER ; then
+    die "rebase failed"
+fi
+
+# clean up when there weren't any actual changes to push
+CURRENT_WORK=`git rev-parse HEAD 2>/dev/null` || die "cant get get current HEAD SHA"
+if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
+    msg ">>> no new changes after rebase"
+    msg ">>> switching back to $AUTOPICK_MASTER and deleting $TEMP_BRANCH"
+    git checkout "$AUTOPICK_MASTER"
+    git branch -D "$TEMP_BRANCH"
+    update_tracker
+    exit 0
+fi
+
+update_tracker
+msg ">>> now you can review and push PR on branch $TEMP_BRANCH"
