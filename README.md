@@ -14,3 +14,13 @@ howto:
 * just fetch git repos: `./run-fetch`
 * full build: `./run-build`
 * create dependency graph: `./run-depgraph`
+
+2do:
+----
+
+* model system packages
+* * for now just testing on Devuan Excalibur) assuming many packages installed in the host
+* * all the system packages yet need to be properly modeled, so at least MPBT can check what's missing
+* * also need to check against various other distros
+* add lots of dependencies currently picked from host, so we can additionally build the whole stack on our own
+* add solutions for other distros
