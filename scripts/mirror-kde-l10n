@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -x
+set -euo pipefail
+
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+cd "$SCRIPT_DIR/../"
+
+if [ ! -f .gitignore ] || [ ! -f README.md ]; then
+    echo "$0: call me from repo root dir" 2>&1
+    exit 1
+fi
+
+START_REV="1733270"
+REPO_BASEDIR="_WORK_/mirror/"
+REPO_NAME="kde-l10n"
+REPO_DIR="$REPO_BASEDIR/$REPO_NAME"
+
+if [ -f "$REPO_DIR/.git/HEAD" ]; then
+    echo "=== repo already exsits ... updating"
+    ( cd "$REPO_DIR" && git svn fetch --ignore-paths='\.tmx$' )
+else
+    echo "=== repo not exising yet ... doing fresh import"
+    mkdir -p "$REPO_BASEDIR"
+    (
+        cd "$REPO_BASEDIR"
+        git svn clone \
+          -r $START_REV:HEAD \
+          --prefix=svn/ \
+          --ignore-paths='\.tmx$' \
+          svn://anonsvn.kde.org/home/kde/trunk/l10n-kf6 \
+          "${REPO_NAME}"
+    )
+fi
+
+(
+    cd $REPO_DIR
+    git checkout master
+    git rebase svn/git-svn
+    git push origin master
+)
