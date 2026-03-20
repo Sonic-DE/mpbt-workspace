@@ -15,4 +15,3 @@ build-depends:
 
 depends:
     - qt6/qtbase
-    - sonicde/sonic-layer-shell-qt
