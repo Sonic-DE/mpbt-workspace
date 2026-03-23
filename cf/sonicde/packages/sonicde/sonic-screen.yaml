@@ -13,6 +13,10 @@ sources:
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
+        config:
+            autopick.upstream: upstream/Plasma/6.6
+            autopick.master:   ${ref}
+            autopick.tracker:  origin/upstream-tracking
 
 ref: origin/master
 
