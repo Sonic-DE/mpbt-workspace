@@ -2,7 +2,7 @@ sources:
     git:
         url:    ${sonicde_git}/${@basename}
         ref:    ${ref}
-        depth:  1
+        depth:  ${sonic_depth}
         fetch:
           - refs/heads/*:refs/remotes/origin/*
 

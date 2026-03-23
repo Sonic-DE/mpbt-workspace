@@ -20,6 +20,10 @@ qt6_git:            https://code.qt.io/qt
 plasma_version:     v6.6.3
 plasma_git:         https://invent.kde.org/plasma/
 
+# clone depth of our and upstream packages (those we forked)
+sonic_depth:        0
+upstream_depth:     0
+
 install-prefix: ${@PROJECT::@homedir}/SONICDE
 
 # what to build (can use packages or provides here)
@@ -73,3 +77,5 @@ package-defaults:
     plasma_git:     ${plasma_git}
     plasma_version: ${plasma_version}
     ossqm_git:      ${ossqm_git}
+    sonic_depth:    ${sonic_depth}
+    upstream_depth: ${upstream_depth}

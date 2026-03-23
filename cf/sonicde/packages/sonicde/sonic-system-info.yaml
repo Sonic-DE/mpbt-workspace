@@ -4,12 +4,12 @@ sources:
         remotes:
             origin:
                 url:    ${sonicde_git}/${@basename}
-                depth:  1
+                depth:  ${sonic_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/origin/*
             upstream:
                 url:    ${plasma_git}/kinfocenter
-                depth:  1
+                depth:  ${upstream_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
