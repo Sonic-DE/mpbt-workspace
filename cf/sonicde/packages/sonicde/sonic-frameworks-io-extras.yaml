@@ -1,0 +1,36 @@
+sources:
+    git:
+        ref:    ${ref}
+        remotes:
+            origin:
+                url:    ${sonicde_git}/${@basename}
+                depth:  ${sonic_depth}
+                fetch:
+                  - refs/heads/*:refs/remotes/origin/*
+                  - refs/tags/*:refs/tags/origin/*
+            upstream:
+                url:    ${kdenet_git}/kio-extras
+                depth:  ${upstream_depth}
+                fetch:
+                  - refs/heads/*:refs/remotes/upstream/*
+                  - refs/tags/*:refs/tags/upstream/*
+        config:
+            autopick.enabled:       "true"
+            autopick.upstream:      upstream/master
+            autopick.master:        ${ref}
+            autopick.tracker:       origin/tracking/master
+            advice.detachedHead:    "false"
+            remote.origin.tagOpt:   --no-tags
+            remote.upstream.tagOpt: --no-tags
+
+ref: origin/master
+
+buildsystem: cmake
+
+build-depends:
+    - kde/kf6/extra-cmake-modules
+    - sys/libproxy
+    - sonicde/sonic-frameworks-doctools
+
+depends:
+    - qt6/qtbase

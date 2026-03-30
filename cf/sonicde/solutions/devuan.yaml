@@ -14,6 +14,8 @@ kf6_version:        v6.24.0
 
 kdelibs_git:        https://invent.kde.org/libraries/
 
+kdenet_git:         https://invent.kde.org/network/
+
 qt6_version:        v6.10.2
 qt6_git:            https://code.qt.io/qt
 
@@ -50,6 +52,10 @@ build:
     - sonicde/sonic-win
     - sonicde/sonic-workspace
     - sonicde/sonic-workspace-addons
+    - sonicde/sonic-frameworks-quick-ui
+    - sonicde/sonic-frameworks-io-extras
+    - sonicde/sonic-decoration
+    - sonicde/sonic-activities
 
 # very old ... still Qt5
 #    - sonicde/sonic-sysguard
@@ -71,6 +77,7 @@ package-defaults:
     xlibre_git:     ${xlibre_git}
     kf6_git:        ${kf6_git}
     kf6_version:    ${kf6_version}
+    kdenet_git:     ${kdenet_git}
     kdelibs_git:    ${kdelibs_git}
     qt6_git:        ${qt6_git}
     qt6_version:    ${qt6_version}

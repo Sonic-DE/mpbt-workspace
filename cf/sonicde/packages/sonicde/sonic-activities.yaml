@@ -1,0 +1,34 @@
+sources:
+    git:
+        ref:    ${ref}
+        remotes:
+            origin:
+                url:    ${sonicde_git}/${@basename}
+                depth:  ${sonic_depth}
+                fetch:
+                  - refs/heads/*:refs/remotes/origin/*
+                  - refs/tags/*:refs/tags/origin/*
+            upstream:
+                url:    ${plasma_git}/plasma-activities
+                depth:  ${upstream_depth}
+                fetch:
+                  - refs/heads/*:refs/remotes/upstream/*
+                  - refs/tags/*:refs/tags/upstream/*
+        config:
+            autopick.enabled:       "true"
+            autopick.upstream:      upstream/Plasma/6.6
+            autopick.master:        ${ref}
+            autopick.tracker:       origin/tracking/plasma-6.6
+            advice.detachedHead:    "false"
+            remote.origin.tagOpt:   --no-tags
+            remote.upstream.tagOpt: --no-tags
+
+ref: origin/master
+
+buildsystem: cmake
+
+build-depends:
+    - kde/kf6/extra-cmake-modules
+
+depends:
+    - qt6/qtbase
