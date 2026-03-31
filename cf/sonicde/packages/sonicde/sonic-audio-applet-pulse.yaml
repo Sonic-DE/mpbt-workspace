@@ -3,13 +3,13 @@ sources:
         ref:    ${ref}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}
+                url:    ${sonicde_git}/${@basename}.git
                 depth:  ${sonic_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/origin/*
                   - refs/tags/*:refs/tags/origin/*
             upstream:
-                url:    ${plasma_git}/plasma-pa
+                url:    ${plasma_git}/plasma-pa.git
                 depth:  ${upstream_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*

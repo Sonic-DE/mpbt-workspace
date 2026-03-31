@@ -3,13 +3,13 @@ sources:
         ref:    ${ref}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}
+                url:    ${sonicde_git}/${@basename}.git
                 depth:  ${sonic_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/origin/*
                   - refs/tags/*:refs/tags/origin/*
             upstream:
-                url:    ${kf6_git}/kwindowsystem
+                url:    ${kf6_git}/kwindowsystem.git
                 depth:  ${upstream_depth}
                 fetch:
                   - refs/heads/*:refs/remotes/upstream/*

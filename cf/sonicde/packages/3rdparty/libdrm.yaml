@@ -2,7 +2,7 @@ provides: sys/libdrm
 
 sources:
     git:
-        url:    ${xlibre_git}/mirror.fdo.drm
+        url:    ${xlibre_git}/mirror.fdo.drm.git
         ref:    ${ref}
         depth:  1
         fetch:

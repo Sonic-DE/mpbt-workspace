@@ -1,6 +1,6 @@
 sources:
     git:
-        url:    ${kf6_git}/${@basename}
+        url:    ${kf6_git}/${@basename}.git
         ref:    ${ref}
         depth:  1
         fetch:

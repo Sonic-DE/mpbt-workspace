@@ -1,6 +1,6 @@
 sources:
     git:
-        upstream-url: https://invent.kde.org/qt/pyside/pyside-setup
+        upstream-url: https://invent.kde.org/qt/pyside/pyside-setup.git
         url:    ${ossqm_git}/pyside-setup.git
         ref:    ${ref}
         fetch:

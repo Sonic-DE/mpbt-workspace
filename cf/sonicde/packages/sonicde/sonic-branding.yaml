@@ -1,6 +1,6 @@
 sources:
     git:
-        url:    ${sonicde_git}/${@basename}
+        url:    ${sonicde_git}/${@basename}.git
         ref:    ${ref}
         depth:  ${sonic_depth}
         remotes:

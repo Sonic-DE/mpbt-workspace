@@ -1,6 +1,6 @@
 sources:
     git:
-        url:    ${plasma_git}/${@basename}
+        url:    ${plasma_git}/${@basename}.git
         ref:    ${ref}
         depth:  1
         fetch:
