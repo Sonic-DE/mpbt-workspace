@@ -24,3 +24,5 @@ buildsystem: cmake
 
 build-depends:
     - kde/kf6/extra-cmake-modules
+    - sys/libxslt
+    - sys/docbook-xml
