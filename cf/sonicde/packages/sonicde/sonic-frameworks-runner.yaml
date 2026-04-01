@@ -15,11 +15,11 @@ sources:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
         config:
-            autopick.enabled:     "true"
-            autopick.upstream:    upstream/master
-            autopick.master:      ${ref}
-            autopick.tracker:     origin/tracking/master
-            advice.detachedHead:  "false"
+            autopick.enabled:       "true"
+            autopick.upstream:      upstream/master
+            autopick.master:        ${ref}
+            autopick.tracker:       origin/tracking/master
+            advice.detachedHead:    "false"
             remote.origin.tagOpt:   --no-tags
             remote.upstream.tagOpt: --no-tags
 

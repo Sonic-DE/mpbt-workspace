@@ -13,7 +13,7 @@ sources:
                   - refs/heads/*:refs/remotes/upstream/*
                   - refs/tags/*:refs/tags/upstream/*
         config:
-            advice.detachedHead:  "false"
+            advice.detachedHead:    "false"
             remote.origin.tagOpt:   --no-tags
             remote.upstream.tagOpt: --no-tags
 
