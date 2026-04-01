@@ -15,4 +15,5 @@ build-depends:
 
 depends:
     - qt6/qtbase
+    - sonicde/sonic-frameworks-doctools
     - kde/kf6/karchive
