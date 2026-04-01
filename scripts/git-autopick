@@ -54,7 +54,7 @@ fi
 # update tracker branch to latest upstream
 update_tracker() {
     msg "=== updating tracker branch $AUTOPICK_TRACKER to ${CURRENT_UPSTREAM}"
-    git push "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:${AUTOPICK_TRACKER_BRANCH}"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:${AUTOPICK_TRACKER_BRANCH}"
 }
 
 # check whether remote temp branch already exists
@@ -69,12 +69,12 @@ check_work_waiting() {
 check_work_waiting
 
 msg "=== creating working branch"
-git checkout "$AUTOPICK_MASTER"
-git branch -D "$TEMP_BRANCH" || true
-git checkout "$AUTOPICK_UPSTREAM" -b "$TEMP_BRANCH"
+git checkout -q "$AUTOPICK_MASTER"
+git branch -q -D "$TEMP_BRANCH" || true
+git checkout -q "$AUTOPICK_UPSTREAM" -b "$TEMP_BRANCH"
 
 msg "=== rebasing"
-if ! git rebase $CURRENT_TRACKER --onto $CURRENT_MASTER ; then
+if ! git rebase -q $CURRENT_TRACKER --onto $CURRENT_MASTER ; then
     die "rebase failed"
 fi
 
@@ -83,8 +83,8 @@ CURRENT_WORK=`git rev-parse HEAD 2>/dev/null` || die "cant get get current HEAD 
 if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
     msg ">>> no new changes after rebase"
     msg ">>> switching back to $AUTOPICK_MASTER and deleting $TEMP_BRANCH"
-    git checkout "$AUTOPICK_MASTER"
-    git branch -D "$TEMP_BRANCH"
+    git checkout -q "$AUTOPICK_MASTER"
+    git branch -q -D "$TEMP_BRANCH"
     update_tracker
     exit 0
 fi
