@@ -39,6 +39,9 @@ fi
 [ "$AUTOPICK_MASTER" ] || die "missing autopick.master git config"
 [ "$AUTOPICK_TRACKER" ] || die "missing autopick.tracker git config"
 
+git fetch --quiet --prune origin
+git fetch --quiet --prune upstream
+
 CURRENT_UPSTREAM=`git rev-parse "$AUTOPICK_UPSTREAM" 2>/dev/null` || die "cant get upstream branch SHA"
 CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || die "cant get tracker branch SHA"
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
