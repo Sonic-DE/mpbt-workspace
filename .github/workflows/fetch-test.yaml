@@ -21,7 +21,7 @@ jobs:
               run:  sudo apt install -y golang-go
 
             - name: install mpbt
-              run:  go install github.com/metux/mpbt/cmd/mpbt-builder@v0.1.7
+              run:  go install github.com/metux/mpbt/cmd/mpbt-builder@v0.1.8
 
             - name: run fetching test
               run: |
