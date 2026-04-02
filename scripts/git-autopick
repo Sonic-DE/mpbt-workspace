@@ -89,4 +89,12 @@ if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
 fi
 
 update_tracker
-msg ">>> now you can review and push PR on branch $TEMP_BRANCH"
+msg "=== pushing branch $TEMP_BRANCH and creating PR"
+git push $AUTOPICK_MASTER_REMOTE $TEMP_BRANCH
+gh repo set-default "$(git config --get remote.origin.url | sed 's|.*github.com[:/]||' | sed 's|\.git$||')"
+gh pr create -a "@me" \
+    --title "automatic backport" \
+    --body "upstream range $CURRENT_TRACKER..$AUTOPICK_UPSTREAM" \
+    -B "$AUTOPICK_MASTER_BRANCH" \
+    -H "$TEMP_BRANCH" \
+    --reviewer "Sonic-DE/dev"
