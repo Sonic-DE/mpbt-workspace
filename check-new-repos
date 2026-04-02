@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gh repo list Sonic-DE -L 1000 --no-archived --json name --jq '.[].name' | sort -u > .repos.tmp
+
+if diff -ruN cf/repos.list .repos.tmp ; then
+#    rm -f .repos.tmp
+    exit 0
+else
+    exit 1
+fi
