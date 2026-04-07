@@ -56,6 +56,7 @@ build:
     - sonicde/sonic-win
     - sonicde/sonic-workspace
     - sonicde/sonic-workspace-addons
+    - sonicde/sonic-workspace-wallpapers
     - sonicde/sonic-frameworks-quick-ui
     - sonicde/sonic-frameworks-io-extras
     - sonicde/sonic-decoration
