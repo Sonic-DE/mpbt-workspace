@@ -1,10 +1,10 @@
 provides: kde/kwin-dbus-interface
 sources:
     git:
-        url:    ${sonicde_git}/${@basename}.git
         ref:    origin/${master_branch}
         remotes:
             origin:
+                url:    ${sonicde_git}/${@basename}.git
                 fetch:  ${@SOLUTION::fetch::origin}
         config:
             advice.detachedHead:    "false"
