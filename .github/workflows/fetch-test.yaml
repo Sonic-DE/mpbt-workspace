@@ -25,6 +25,7 @@ jobs:
 
             - name: run fetching test
               run: |
+                    git config --global init.defaultBranch master ;
                     ~/go/bin/mpbt-builder \
                         -root . \
                         -solution cf/sonicde/solutions/devuan.yaml \
