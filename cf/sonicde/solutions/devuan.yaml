@@ -81,13 +81,17 @@ package-defaults:
     sonicde_git:    ${sonicde_git}
     xlibre_git:     ${xlibre_git}
     kde_git:        ${kde_git}
+    kde_force:      true
     kf6_git:        ${kf6_git}
     kf6_version:    ${kf6_version}
+    kf6_force:      true
     kdenet_git:     ${kdenet_git}
     kdelibs_git:    ${kdelibs_git}
+    kdelibs_force:  true
     qt6_git:        ${qt6_git}
     qt6_version:    ${qt6_version}
     plasma_git:     ${plasma_git}
+    plasma_force:   true
     plasma_version: ${plasma_version}
     ossqm_git:      ${ossqm_git}
     sonic_depth:    ${sonic_depth}

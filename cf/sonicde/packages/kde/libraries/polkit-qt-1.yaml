@@ -5,6 +5,7 @@ sources:
         depth:  1
         fetch:
           - +refs/heads/*:refs/remotes/origin/*
+        force-checkout: ${kdelibs_force}
 
 ref: origin/qt6
 

@@ -5,6 +5,7 @@ sources:
         depth:  1
         fetch:
           - refs/tags/${ref}:refs/tags/${ref}
+        force-checkout: ${plasma_force}
 
 ref: ${plasma_version}
 

@@ -6,6 +6,7 @@ sources:
         fetch:
           - refs/heads/*:refs/remotes/origin/*
           - refs/tags/*:refs/tags/*
+        force-checkout: ${kf6_force}
 
 ref: ${kf6_version}
 

@@ -5,6 +5,7 @@ sources:
         depth:  1
         fetch:
           - refs/tags/${ref}:refs/tags/${ref}
+        force-checkout: ${kdelibs_force}
 
 ref: v2.3.10
 

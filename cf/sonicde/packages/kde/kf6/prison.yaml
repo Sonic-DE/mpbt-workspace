@@ -5,6 +5,7 @@ sources:
         depth:  1
         fetch:
           - refs/tags/${ref}:refs/tags/${ref}
+        force-checkout: ${kf6_force}
 
 ref: ${kf6_version}
 
