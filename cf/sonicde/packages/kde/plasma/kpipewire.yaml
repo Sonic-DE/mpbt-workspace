@@ -15,6 +15,7 @@ build-depends:
     - kde/kf6/extra-cmake-modules
 
 depends:
+    - os-installed/libva
     - qt6/qtbase
     - sys/libavcodec
     - sys/libavfilter
