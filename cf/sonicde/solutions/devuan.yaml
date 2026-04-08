@@ -19,7 +19,7 @@ kdelibs_git:        https://invent.kde.org/libraries/
 kdenet_git:         https://invent.kde.org/network/
 
 qt6_version:        v6.10.2
-qt6_git:            https://code.qt.io/qt
+qt6_git:            git://code.qt.io/qt
 
 plasma_version:     v6.6.3
 plasma_git:         https://invent.kde.org/plasma/
