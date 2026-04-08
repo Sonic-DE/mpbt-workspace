@@ -7,7 +7,7 @@ sources:
           - refs/heads/*:refs/remotes/origin/*
           - refs/tags/*:refs/tags/*
 
-ref: v6.24.0
+ref: ${kf6_version}
 
 buildsystem: cmake
 
