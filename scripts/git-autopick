@@ -109,7 +109,7 @@ update_tracker() {
 # check the remote temp branch:
 # - if it exists with unmerged commits and no PR, create a PR and exit
 # - if it exists with an open PR, skip (message and exit)
-# - if it exists but no unmerged commits and no PR, remove the branch and exit
+# - if it exists but no unmerged commits and no PR, remove the branch and continue
 # - otherwise proceed (return)
 check_work_waiting() {
     local remote_url
@@ -148,10 +148,10 @@ check_work_waiting() {
         exit 0
     fi
 
-    # Branch exists but no unmerged commits and no PR: remove the branch and exit
+    # Branch exists but no unmerged commits and no PR: remove the branch and continue
     msg "=== remote $TEMP_BRANCH has no unmerged commits and no PR, removing stale branch"
     git push origin --delete "$TEMP_BRANCH" || msg "=== failed to delete $TEMP_BRANCH"
-    exit 0
+    return
 }
 
 check_work_waiting
@@ -273,7 +273,6 @@ if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
     exit 0
 fi
 
-update_tracker
 msg "=== pushing branch $TEMP_BRANCH and creating PR"
 git push $AUTOPICK_MASTER_REMOTE $TEMP_BRANCH
 gh repo set-default "$(git config --get remote.origin.url | sed 's|.*github.com[:/]||' | sed 's|\.git$||')"
@@ -283,3 +282,4 @@ gh pr create -a "@me" \
     -B "$AUTOPICK_MASTER_BRANCH" \
     -H "$TEMP_BRANCH" \
     --reviewer "Sonic-DE/dev"
+update_tracker
