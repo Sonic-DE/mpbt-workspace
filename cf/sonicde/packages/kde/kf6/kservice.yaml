@@ -1,15 +1,15 @@
 sources:
-    git:
-        url:    ${kf6_git}/${@basename}.git
-        ref:    ${ref}
-        depth:  1
-        fetch:
-          - refs/tags/${ref}:refs/tags/${ref}
-        force-checkout: ${kf6_force}
+  git:
+    url: ${kf6_git}/${@basename}.git
+    ref: ${ref}
+    depth: 1
+    fetch:
+      - refs/tags/${ref}:refs/tags/${ref}
+    force-checkout: ${kf6_force}
 
 ref: ${kf6_version}
 
 buildsystem: cmake
 
 depends:
-    - kde/kf6/extra-cmake-modules
+  - sonicde/sonic-frameworks-cmake-modules

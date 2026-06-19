@@ -12,11 +12,14 @@ sonic-decoration
 sonic-de.github.io
 sonic-desktop-interface
 sonic-frameworks-auth
+sonic-frameworks-cmake-modules
 sonic-frameworks-core-addons
 sonic-frameworks-doctools
+sonic-frameworks-gui-addons
 sonic-frameworks-io
 sonic-frameworks-io-extras
 sonic-frameworks-keybind
+sonic-frameworks-open-collab
 sonic-frameworks-quick-ui
 sonic-frameworks-runner
 sonic-frameworks-windowsystem
@@ -26,6 +29,7 @@ sonic-l10n-templates
 sonic-login-manager
 sonic-mobile-interface
 sonic-network-manager
+sonic-night-light
 sonic-screen
 sonic-screen-library
 sonic-screenlocker

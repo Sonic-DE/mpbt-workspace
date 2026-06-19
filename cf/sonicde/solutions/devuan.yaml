@@ -5,28 +5,28 @@
 # Yet just tested on Devuan Excalibur - other distros might require
 # some additional tweaking.
 
-sonicde_git:        git@github.com:Sonic-DE
-xlibre_git:         https://github.com/X11Libre
-ossqm_git:          git@github.com:oss-qm
+sonicde_git: git@github.com:Sonic-DE
+xlibre_git: https://github.com/X11Libre
+ossqm_git: git@github.com:oss-qm
 
-kde_git:            https://invent.kde.org/
+kde_git: https://invent.kde.org/
 
-kf6_git:            https://invent.kde.org/frameworks/
-kf6_version:        v6.25.0-rc1
+kf6_git: https://invent.kde.org/frameworks/
+kf6_version: v6.27.0
 
-kdelibs_git:        https://invent.kde.org/libraries/
+kdelibs_git: https://invent.kde.org/libraries/
 
-kdenet_git:         https://invent.kde.org/network/
+kdenet_git: https://invent.kde.org/network/
 
-qt6_version:        v6.10.2
-qt6_git:            git://code.qt.io/qt
+qt6_version: v6.11.1
+qt6_git: git://code.qt.io/qt
 
-plasma_version:     v6.6.4
-plasma_git:         https://invent.kde.org/plasma/
+plasma_git: https://invent.kde.org/plasma/
+plasma_version: v6.7.0
 
 # clone depth of our and upstream packages (those we forked)
-sonic_depth:        0
-upstream_depth:     0
+sonic_depth: 0
+upstream_depth: 0
 
 install-prefix: ${@PROJECT::@homedir}/SONICDE
 
@@ -67,7 +67,7 @@ build:
 
 # extra environment variables
 env:
-    PATH: "${install-prefix}/bin:/bin:/usr/bin"
+    PATH: '${install-prefix}/bin:/bin:/usr/bin'
     PKG_CONFIG_PATH: ${install-prefix}/share/pkgconfig:${install-prefix}/lib/pkgconfig:${install-prefix}/lib/${@PROJECT::@machine}/pkgconfig/
     ACLOCAL_PATH: ${install-prefix}/share/aclocal
 
@@ -78,23 +78,23 @@ packages:
 package-defaults:
     cmake-args:
         - -GNinja
-    sonicde_git:    ${sonicde_git}
-    xlibre_git:     ${xlibre_git}
-    kde_git:        ${kde_git}
-    kde_force:      true
-    kf6_git:        ${kf6_git}
-    kf6_version:    ${kf6_version}
-    kf6_force:      true
-    kdenet_git:     ${kdenet_git}
-    kdelibs_git:    ${kdelibs_git}
-    kdelibs_force:  true
-    qt6_git:        ${qt6_git}
-    qt6_version:    ${qt6_version}
-    plasma_git:     ${plasma_git}
-    plasma_force:   true
+    sonicde_git: ${sonicde_git}
+    xlibre_git: ${xlibre_git}
+    kde_git: ${kde_git}
+    kde_force: true
+    kf6_git: ${kf6_git}
+    kf6_version: ${kf6_version}
+    kf6_force: true
+    kdenet_git: ${kdenet_git}
+    kdelibs_git: ${kdelibs_git}
+    kdelibs_force: true
+    qt6_git: ${qt6_git}
+    qt6_version: ${qt6_version}
+    plasma_git: ${plasma_git}
+    plasma_force: true
     plasma_version: ${plasma_version}
-    ossqm_git:      ${ossqm_git}
-    sonic_depth:    ${sonic_depth}
+    ossqm_git: ${ossqm_git}
+    sonic_depth: ${sonic_depth}
     upstream_depth: ${upstream_depth}
 
 fetch:

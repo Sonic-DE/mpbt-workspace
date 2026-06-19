@@ -7,7 +7,7 @@ sources:
                 depth: ${sonic_depth}
                 fetch: ${@SOLUTION::fetch::origin}
             upstream:
-                url: ${plasma_git}/kscreen.git
+                url: ${plasma_git}/knighttime.git
                 depth: ${upstream_depth}
                 fetch: ${@SOLUTION::fetch::upstream}
         config:
@@ -25,10 +25,20 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/kconfig
     - sonicde/sonic-frameworks-cmake-modules
-    - sonicde/sonic-interface-libraries
-    - sonicde/sonic-screen-library
 
 depends:
     - qt6/qtbase
+    - qt6/qtlocation
+    - qt6/qtspeech
+    - kde/qcoro6
+    - kde/kf6/kdeclarative
+    - kde/kf6/kded
+    - kde/kf6/kparts
+    - kde/kf6/ktexteditor
+    - kde/kf6/kwallet
+    - kde/kf6/ktextwidgets
+    - kde/kf6/kstatusnotifieritem
+    - kde/kf6/kholidays
+    - sonicde/sonic-screen
+    - sonicde/sonic-sysguard-library

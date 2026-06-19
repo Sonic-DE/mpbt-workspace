@@ -1,10 +1,10 @@
 sources:
     git:
-        url:    ${plasma_git}/${@basename}.git
-        ref:    ${ref}
-        depth:  1
+        url: ${plasma_git}/${@basename}.git
+        ref: ${ref}
+        depth: 1
         fetch:
-          - refs/tags/${ref}:refs/tags/${ref}
+            - refs/tags/${ref}:refs/tags/${ref}
         force-checkout: ${plasma_force}
 
 ref: ${plasma_version}
@@ -12,7 +12,7 @@ ref: ${plasma_version}
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
     - qt6/qtbase

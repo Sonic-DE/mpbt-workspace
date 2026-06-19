@@ -1,22 +1,22 @@
 sources:
     git:
-        ref:    origin/${master_branch}
+        ref: origin/${master_branch}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}.git
-                depth:  ${sonic_depth}
-                fetch:  ${@SOLUTION::fetch::origin}
+                url: ${sonicde_git}/${@basename}.git
+                depth: ${sonic_depth}
+                fetch: ${@SOLUTION::fetch::origin}
             upstream:
-                url:    ${plasma_git}/plasma-desktop.git
-                depth:  ${upstream_depth}
-                fetch:  ${@SOLUTION::fetch::upstream}
+                url: ${plasma_git}/plasma-desktop.git
+                depth: ${upstream_depth}
+                fetch: ${@SOLUTION::fetch::upstream}
         config:
-            autopick.enabled:       "true"
-            autopick.upstream:      upstream/Plasma/6.6
-            autopick.master:        origin/${master_branch}
-            autopick.tracker:       origin/tracking/plasma-6.6
-            advice.detachedHead:    "false"
-            remote.origin.tagOpt:   --no-tags
+            autopick.enabled: 'true'
+            autopick.upstream: upstream/Plasma/6.7
+            autopick.master: origin/${master_branch}
+            autopick.tracker: origin/tracking/plasma-6.7
+            advice.detachedHead: 'false'
+            remote.origin.tagOpt: --no-tags
             remote.upstream.tagOpt: --no-tags
         local-branch: ${master_branch}
 
@@ -29,7 +29,6 @@ depends:
     - qt6/qt5compat
     - qt6/qtsvg
     - kde/kf6/ksvg
-    - sonicde/sonic-frameworks-auth
     - kde/kf6/kcrash
     - kde/kf6/knewstuff
     - kde/kf6/knotifications
@@ -37,21 +36,22 @@ depends:
     - kde/kf6/kdbusaddons
     - kde/kf6/sonnet
     - kde/kf6/kiconthemes
-    - sonicde/sonic-frameworks-keybind
-    - sonicde/sonic-frameworks-runner
-    - sonicde/sonic-frameworks-io
     - kde/kf6/kxmlgui
     - kde/kf6/kcmutils
     - kde/kf6/knotifyconfig
     - kde/plasma/plasma5support
     - kde/plasma/plasma-activities-stats
+    - sonicde/sonic-frameworks-auth
+    - sonicde/sonic-frameworks-keybind
+    - sonicde/sonic-frameworks-runner
+    - sonicde/sonic-frameworks-io
     - sonicde/sonic-workspace
     - sonicde/sonic-win
     - sonicde/sonic-interface-libraries
     - sonicde/sonic-screenlocker
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules
 
 cmake-extra-args:
     - -DBUILD_KCM_TABLET=OFF

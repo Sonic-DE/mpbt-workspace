@@ -1,10 +1,10 @@
 sources:
     git:
-        url:    ${kdelibs_git}/${@basename}.git
-        ref:    ${ref}
-        depth:  1
+        url: ${kdelibs_git}/${@basename}.git
+        ref: ${ref}
+        depth: 1
         fetch:
-          - refs/tags/${ref}:refs/tags/${ref}
+            - refs/tags/${ref}:refs/tags/${ref}
         force-checkout: ${kdelibs_force}
 
 ref: v2.3.10
@@ -12,7 +12,7 @@ ref: v2.3.10
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
     - qt6/qtbase

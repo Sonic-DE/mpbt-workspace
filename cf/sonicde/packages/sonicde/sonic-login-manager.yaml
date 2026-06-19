@@ -1,22 +1,22 @@
 sources:
     git:
-        ref:    origin/${master_branch}
+        ref: origin/${master_branch}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}.git
-                depth:  ${sonic_depth}
-                fetch:  ${@SOLUTION::fetch::origin}
+                url: ${sonicde_git}/${@basename}.git
+                depth: ${sonic_depth}
+                fetch: ${@SOLUTION::fetch::origin}
             upstream:
-                url:    ${plasma_git}/plasma-login-manager.git
-                depth:  ${upstream_depth}
-                fetch:  ${@SOLUTION::fetch::upstream}
+                url: ${plasma_git}/plasma-login-manager.git
+                depth: ${upstream_depth}
+                fetch: ${@SOLUTION::fetch::upstream}
         config:
-            autopick.enabled:       "true"
-            autopick.upstream:      upstream/Plasma/6.6
-            autopick.master:        origin/${master_branch}
-            autopick.tracker:       origin/tracking/plasma-6.6
-            advice.detachedHead:    "false"
-            remote.origin.tagOpt:   --no-tags
+            autopick.enabled: 'true'
+            autopick.upstream: upstream/Plasma/6.7
+            autopick.master: origin/${master_branch}
+            autopick.tracker: origin/tracking/plasma-6.7
+            advice.detachedHead: 'false'
+            remote.origin.tagOpt: --no-tags
             remote.upstream.tagOpt: --no-tags
         local-branch: ${master_branch}
 
@@ -25,7 +25,7 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
     - qt6/qtbase
@@ -34,13 +34,13 @@ depends:
     - kde/kf6/kpackage
     - kde/kf6/karchive
     - kde/kf6/ki18n
-    - kde/kf6/kcoreaddons
-    - kde/kf6/kio
     - kde/kf6/kdbusaddons
     - kde/kf6/kcmutils
     - kde/kf6/kdeclarative
     - kde/kf6/ksvg
-    - sonicde/sonic-workspace
+    - sonicde/sonic-frameworks-core-addons
+    - sonicde/sonic-frameworks-io
     - sonicde/sonic-frameworks-windowsystem
     - sonicde/sonic-frameworks-auth
     - sonicde/sonic-interface-libraries
+    - sonicde/sonic-workspace

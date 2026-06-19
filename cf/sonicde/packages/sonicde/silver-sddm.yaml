@@ -1,22 +1,22 @@
 sources:
     git:
-        ref:    origin/${master_branch}
+        ref: origin/${master_branch}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}.git
-                depth:  ${sonic_depth}
-                fetch:  ${@SOLUTION::fetch::origin}
+                url: ${sonicde_git}/${@basename}.git
+                depth: ${sonic_depth}
+                fetch: ${@SOLUTION::fetch::origin}
             upstream:
-                url:    https://github.com/Ziednaga/AndromiX-SDDM-Theme.git
-                depth:  ${upstream_depth}
-                fetch:  ${@SOLUTION::fetch::upstream}
+                url: https://github.com/Ziednaga/AndromiX-SDDM-Theme.git
+                depth: ${upstream_depth}
+                fetch: ${@SOLUTION::fetch::upstream}
         config:
-            autopick.enabled:       "true"
-            autopick.upstream:      upstream/main
-            autopick.master:        origin/${master_branch}
-            autopick.tracker:       origin/tracking/main
-            advice.detachedHead:    "false"
-            remote.origin.tagOpt:   --no-tags
+            autopick.enabled: 'true'
+            autopick.upstream: upstream/main
+            autopick.master: origin/${master_branch}
+            autopick.tracker: origin/tracking/main
+            advice.detachedHead: 'false'
+            remote.origin.tagOpt: --no-tags
             remote.upstream.tagOpt: --no-tags
         local-branch: ${master_branch}
 
@@ -25,4 +25,4 @@ master_branch: main
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules

@@ -1,17 +1,17 @@
 sources:
     git:
-        ref:    origin/${master_branch}
+        ref: origin/${master_branch}
         remotes:
             origin:
-                url:    ${sonicde_git}/${@basename}.git
-                depth:  ${sonic_depth}
-                fetch:  ${@SOLUTION::fetch::origin}
+                url: ${sonicde_git}/${@basename}.git
+                depth: ${sonic_depth}
+                fetch: ${@SOLUTION::fetch::origin}
             upstream:
-                url:    https://github.com/paulmcauley/klassy.git
-                depth:  ${upstream_depth}
-                fetch:  ${@SOLUTION::fetch::upstream}
+                url: https://github.com/paulmcauley/klassy.git
+                depth: ${upstream_depth}
+                fetch: ${@SOLUTION::fetch::upstream}
         config:
-            remote.origin.tagOpt:   --no-tags
+            remote.origin.tagOpt: --no-tags
             remote.upstream.tagOpt: --no-tags
         local-branch: ${master_branch}
 
@@ -20,13 +20,13 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/extra-cmake-modules
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
     - qt6/qtbase
-    - kde/kf6/kcoreaddons
     - kde/kf6/kcmutils
     - kde/kf6/kiconthemes
     - kde/kf6/kcolorscheme
-    - kde/kf6/kguiaddons
+    - sonicde/sonic-frameworks-core-addons
+    - sonicde/sonic-frameworks-gui-addons
     - sonicde/sonic-decoration
