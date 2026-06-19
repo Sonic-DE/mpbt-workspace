@@ -106,13 +106,52 @@ update_tracker() {
     git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
 }
 
-# check whether remote temp branch already exists
+# check the remote temp branch:
+# - if it exists with unmerged commits and no PR, create a PR and exit
+# - if it exists with an open PR, skip (message and exit)
+# - if it exists but no unmerged commits and no PR, remove the branch and exit
+# - otherwise proceed (return)
 check_work_waiting() {
-    local HAVE_REMOTE_TEMP=`git ls-remote --heads origin $TEMP_BRANCH`
-    if [ "$HAVE_REMOTE_TEMP" ]; then
-        msg "=== remote $TEMP_BRANCH still exists. skipping for now"
+    local remote_url
+    remote_url=$(git config --get remote.origin.url | sed 's|.*github.com[:/]||' | sed 's|\.git$||')
+
+    # Check if the branch exists on origin
+    if ! git ls-remote --heads origin "$TEMP_BRANCH" >/dev/null 2>&1; then
+        return  # branch does not exist, proceed normally
+    fi
+
+    msg "=== remote $TEMP_BRANCH exists"
+
+    # Fetch the branch
+    git fetch --quiet origin "$TEMP_BRANCH"
+
+    # Check for open PR
+    if command -v gh >/dev/null 2>&1 && [ -n "$remote_url" ]; then
+        if gh pr list --head "$TEMP_BRANCH" --state open --repo "$remote_url" --json number --jq '.[].number' 2>/dev/null | grep -q .; then
+            msg "=== remote $TEMP_BRANCH has an open PR. skipping for now"
+            exit 0
+        fi
+    fi
+
+    # Check if the branch is ahead of master
+    local ahead
+    ahead=$(git rev-list --count "$AUTOPICK_MASTER"..origin/"$TEMP_BRANCH" 2>/dev/null || echo 0)
+    if [ "$ahead" -gt 0 ]; then
+        msg "=== creating PR for existing branch $TEMP_BRANCH with $ahead unmerged commits"
+        gh repo set-default "$remote_url"
+        gh pr create -a "@me" \
+            --title "automatic backport" \
+            --body "upstream range (see tracker)" \
+            -B "$AUTOPICK_MASTER_BRANCH" \
+            -H "$TEMP_BRANCH" \
+            --reviewer "Sonic-DE/dev"
         exit 0
     fi
+
+    # Branch exists but no unmerged commits and no PR: remove the branch and exit
+    msg "=== remote $TEMP_BRANCH has no unmerged commits and no PR, removing stale branch"
+    git push origin --delete "$TEMP_BRANCH" || msg "=== failed to delete $TEMP_BRANCH"
+    exit 0
 }
 
 check_work_waiting
