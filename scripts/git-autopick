@@ -43,7 +43,12 @@ git fetch --quiet --prune origin
 git fetch --quiet --prune upstream
 
 CURRENT_UPSTREAM=`git rev-parse "$AUTOPICK_UPSTREAM" 2>/dev/null` || die "cant get upstream branch SHA"
-CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || die "cant get tracker branch SHA"
+CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || {
+    msg "tracker branch $AUTOPICK_TRACKER missing; seeding it from $AUTOPICK_UPSTREAM"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}" \
+        || die "failed to seed tracker branch $AUTOPICK_TRACKER"
+    exit 0
+}
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
 
 if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
@@ -54,7 +59,7 @@ fi
 # update tracker branch to latest upstream
 update_tracker() {
     msg "=== updating tracker branch $AUTOPICK_TRACKER to ${CURRENT_UPSTREAM}"
-    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:${AUTOPICK_TRACKER_BRANCH}"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
 }
 
 # check whether remote temp branch already exists
