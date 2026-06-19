@@ -38,6 +38,7 @@ build:
     - sonicde/sonic-sysguard-library
     - sonicde/sonic-screen-library
     - sonicde/silver-theme
+    - sonicde/silver-sddm
     - sonicde/sonic-audio-applet-pulse
     - sonicde/sonic-desktop-interface
     - sonicde/sonic-frameworks-auth
@@ -62,8 +63,7 @@ build:
     - sonicde/sonic-decoration
     - sonicde/sonic-activities
 
-# very old ... still Qt5
-#    - sonicde/sonic-sysguard
+
 
 # extra environment variables
 env:
