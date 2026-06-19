@@ -38,6 +38,11 @@ REPOS="
 
 SCRIPT_DIR=`pwd`/scripts
 
+FAILED_FILE="$(pwd)/failed-autopick-repos.txt"
+> "$FAILED_FILE"
+
 for i in $REPOS ; do
-    ( cd _WORK_/sources/sonicde/$i && $SCRIPT_DIR/git-autopick )
+    if ! ( cd _WORK_/sources/sonicde/$i && $SCRIPT_DIR/git-autopick ); then
+        echo "$i" >> "$FAILED_FILE"
+    fi
 done
