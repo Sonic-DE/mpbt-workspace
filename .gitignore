@@ -4,3 +4,4 @@ depgraph.pdf
 depgraph.svg
 .*.tmp
 .ccls-cache
+failed-autopick-repos.txt
