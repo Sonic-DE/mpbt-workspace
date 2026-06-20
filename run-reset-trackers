@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Set the autopick tracker to origin/master.
+# This tells autopick that everything in master has been processed,
+# and only NEW upstream commits (those past master) need to be backported.
+
+REPOS="
+    sonic-activities
+    sonic-audio-applet-pulse
+    sonic-decoration
+    sonic-desktop-interface
+    sonic-frameworks-auth
+    sonic-frameworks-cmake-modules
+    sonic-frameworks-core-addons
+    sonic-frameworks-doctools
+    sonic-frameworks-gui-addons
+    sonic-frameworks-io
+    sonic-frameworks-io-extras
+    sonic-frameworks-keybind
+    sonic-frameworks-open-collab
+    sonic-frameworks-quick-ui
+    sonic-frameworks-runner
+    sonic-frameworks-windowsystem
+    sonic-interface-libraries
+    sonic-keybind-daemon
+    sonic-login-manager
+    sonic-mobile-interface
+    sonic-network-manager
+    sonic-night-light
+    sonic-screen
+    sonic-screen-library
+    sonic-screenlocker
+    sonic-sysguard-library
+    sonic-system-info
+    sonic-win
+    sonic-workspace
+    sonic-workspace-addons
+    sonic-workspace-wallpapers
+    silver-sddm
+    silver-theme
+"
+
+for i in $REPOS ; do
+    dir="_WORK_/sources/sonicde/$i"
+    [ -d "$dir/.git" ] || continue
+    cd "$dir" || continue
+
+    tracker=$(git config autopick.tracker || true)
+    master=$(git config autopick.master || true)
+
+    [ "$tracker" ] || { echo "[$i] no autopick.tracker, skipping"; cd - >/dev/null; continue; }
+    [ "$master" ] || { echo "[$i] no autopick.master, skipping"; cd - >/dev/null; continue; }
+
+    tracker_remote=$(echo "$tracker" | cut -d/ -f1)
+    tracker_branch=$(echo "$tracker" | cut -d/ -f2-)
+
+    git fetch --quiet --prune origin 2>/dev/null || true
+
+    master_sha=$(git rev-parse "$master" 2>/dev/null) || { echo "[$i] cant resolve master, skipping"; cd - >/dev/null; continue; }
+    tracker_sha=$(git rev-parse "$tracker" 2>/dev/null) || tracker_sha=""
+
+    if [ "$tracker_sha" = "$master_sha" ]; then
+        echo "[$i] tracker already at master, skipping"
+        cd - >/dev/null
+        continue
+    fi
+
+    echo "[$i] setting tracker to $master_sha (master)"
+    git push -q "$tracker_remote" "+${master_sha}:refs/heads/${tracker_branch}" || echo "[$i] failed to push tracker"
+
+    cd - >/dev/null
+done
+
+echo ""
+echo "Done."

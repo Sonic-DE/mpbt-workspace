@@ -1,0 +1,78 @@
+#!/bin/bash
+
+REPOS="
+    sonic-activities
+    sonic-audio-applet-pulse
+    sonic-decoration
+    sonic-desktop-interface
+    sonic-frameworks-auth
+    sonic-frameworks-cmake-modules
+    sonic-frameworks-core-addons
+    sonic-frameworks-doctools
+    sonic-frameworks-gui-addons
+    sonic-frameworks-io
+    sonic-frameworks-io-extras
+    sonic-frameworks-keybind
+    sonic-frameworks-open-collab
+    sonic-frameworks-quick-ui
+    sonic-frameworks-runner
+    sonic-frameworks-windowsystem
+    sonic-interface-libraries
+    sonic-keybind-daemon
+    sonic-login-manager
+    sonic-mobile-interface
+    sonic-network-manager
+    sonic-night-light
+    sonic-screen
+    sonic-screen-library
+    sonic-screenlocker
+    sonic-sysguard-library
+    sonic-system-info
+    sonic-win
+    sonic-workspace
+    sonic-workspace-addons
+    sonic-workspace-wallpapers
+    silver-sddm
+    silver-theme
+"
+
+for i in $REPOS ; do
+    dir="_WORK_/sources/sonicde/$i"
+    [ -d "$dir/.git" ] || continue
+    cd "$dir" || continue
+
+    remote_url=$(git config --get remote.origin.url | sed 's|.*github.com[:/]||' | sed 's|\.git$||')
+
+    echo "=== $i : closing PRs and deleting branch pr/sync-with-upstream ==="
+
+    # Close all open PRs for pr/sync-with-upstream
+    if command -v gh >/dev/null 2>&1 && [ -n "$remote_url" ]; then
+        prs=$(gh pr list --head "pr/sync-with-upstream" --state open --repo "$remote_url" --json number --jq '.[].number' 2>/dev/null)
+        for pr in $prs; do
+            echo "  closing PR #$pr"
+            gh pr close "$pr" --repo "$remote_url" --delete-branch 2>/dev/null || \
+                gh pr close "$pr" --repo "$remote_url" 2>/dev/null || true
+        done
+    fi
+
+    # Delete the remote branch if it still exists
+    if git ls-remote --heads origin "pr/sync-with-upstream" | grep -q .; then
+        echo "  deleting remote branch pr/sync-with-upstream"
+        git push origin --delete "pr/sync-with-upstream" 2>/dev/null || true
+    fi
+
+    # Delete the local branch if it exists
+    if git show-ref --verify --quiet "refs/heads/pr/sync-with-upstream"; then
+        # Abort any in-progress merge or rebase first
+        git rebase --abort 2>/dev/null || git merge --abort 2>/dev/null || true
+        # Switch to origin/master first if we're on the branch we want to delete
+        git checkout -q origin/master 2>/dev/null || true
+        echo "  deleting local branch pr/sync-with-upstream"
+        git branch -D "pr/sync-with-upstream" || echo "  failed to delete local branch"
+    fi
+
+    cd - >/dev/null
+done
+
+echo ""
+echo "Done. All PRs closed and branches deleted."
