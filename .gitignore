@@ -3,3 +3,4 @@ depgraph.dot
 depgraph.pdf
 depgraph.svg
 .*.tmp
+.ccls-cache
