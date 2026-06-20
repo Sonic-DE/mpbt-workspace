@@ -59,7 +59,7 @@ while [ -d "$git_dir/rebase-merge" ] || [ -d "$git_dir/rebase-apply" ] || [ -n "
                     ;;
                 *)
                     case "$f" in
-                        *.po|CMakeLists.txt|*/CMakeLists.txt)
+                        po/*|*.po|CMakeLists.txt|*/CMakeLists.txt)
                             msg "auto-resolving $f (taking upstream)"
                             git checkout --theirs -- "$f" || die "failed to checkout --theirs $f"
                             git add -- "$f" || die "failed to add $f"
@@ -192,7 +192,7 @@ do_rebase() {
                             ;;
                         *)
                             case "$f" in
-                                *.po|CMakeLists.txt|*/CMakeLists.txt)
+                                po/*|*.po|CMakeLists.txt|*/CMakeLists.txt)
                                     msg "auto-resolving $f (taking upstream)"
                                     git checkout --theirs -- "$f" || die "failed to checkout --theirs $f"
                                     git add -- "$f" || die "failed to add $f"
@@ -242,7 +242,7 @@ do_rebase() {
                             ;;
                         *)
                             case "$f" in
-                                *.po|CMakeLists.txt|*/CMakeLists.txt)
+                                po/*|*.po|CMakeLists.txt|*/CMakeLists.txt)
                                     msg "auto-resolving $f (taking upstream)"
                                     git checkout --theirs -- "$f" || die "failed to checkout --theirs $f"
                                     git add -- "$f" || die "failed to add $f"
