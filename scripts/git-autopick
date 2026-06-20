@@ -96,8 +96,15 @@ CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || {
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
 
 if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
-    msg "already synced"
-    exit 0
+    # Check if the tracker commit's changes are actually in master
+    # Use git log --cherry-mark to compare commits between tracker and master
+    # Mark '=' means equivalent (already applied), '*' means not applied
+    unapplied=$(git log --cherry-mark --right-only --format='%H %m' \
+        "$AUTOPICK_MASTER"..."$CURRENT_TRACKER" 2>/dev/null | grep '^\* ' | wc -l)
+    if [ "$unapplied" -eq 0 ]; then
+        msg "already synced"
+        exit 0
+    fi
 fi
 
 # update tracker branch to latest upstream
@@ -116,7 +123,7 @@ check_work_waiting() {
     remote_url=$(git config --get remote.origin.url | sed 's|.*github.com[:/]||' | sed 's|\.git$||')
 
     # Check if the branch exists on origin
-    if ! git ls-remote --heads origin "$TEMP_BRANCH" >/dev/null 2>&1; then
+    if ! git ls-remote --heads origin "$TEMP_BRANCH" | grep -q .; then
         return  # branch does not exist, proceed normally
     fi
 
