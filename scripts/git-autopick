@@ -152,6 +152,7 @@ check_work_waiting() {
             -B "$AUTOPICK_MASTER_BRANCH" \
             -H "$TEMP_BRANCH" \
             --reviewer "Sonic-DE/dev"
+        update_tracker
         exit 0
     fi
 
