@@ -31,5 +31,5 @@ depends:
     - qt6/qtbase
     - sonicde/sonic-frameworks-io
     - sonicde/sonic-frameworks-quick-ui
-    - sonicde/sonic-frameworks-settingswidgets
+    - sonicde/sonic-frameworks-settings-ui
     - sonicde/sonic-frameworks-xml-gui

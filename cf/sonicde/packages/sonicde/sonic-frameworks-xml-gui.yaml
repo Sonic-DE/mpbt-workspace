@@ -31,4 +31,4 @@ depends:
     - qt6/qtbase
     - sonicde/sonic-frameworks-data-views
     - sonicde/sonic-frameworks-keybind
-    - sonicde/sonic-frameworks-settingswidgets
+    - sonicde/sonic-frameworks-settings-ui
