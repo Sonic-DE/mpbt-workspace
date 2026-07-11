@@ -41,4 +41,4 @@ depends:
     - sonicde/sonic-frameworks-text-widgets
     - sonicde/sonic-frameworks-ui-components
     - sonicde/sonic-screen
-    - sonicde/sonic-sysguard-library
+    - sonicde/sonic-system-monitor-library

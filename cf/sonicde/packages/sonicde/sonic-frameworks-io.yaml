@@ -40,6 +40,3 @@ depends:
     - sonicde/sonic-frameworks-icon-themes
     - sonicde/sonic-frameworks-progress-ui
     - sonicde/sonic-frameworks-windowsystem
-
-cmake-extra-args:
-    - -DWITH_WAYLAND=OFF
