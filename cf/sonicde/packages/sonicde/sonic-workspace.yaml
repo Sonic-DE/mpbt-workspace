@@ -25,19 +25,19 @@ master_branch: master
 buildsystem: cmake
 
 depends:
-    - qt6/qtlocation
-    - kde/libraries/polkit-qt-1
-    - kde/kf6/kdeclarative
+    - 3rdparty/qcoro6
     - kde/kf6/prison
-    - kde/qcoro6
-    - kde/kf6/kded
-    - kde/kf6/kparts
-    - kde/kf6/ktexteditor
-    - kde/kf6/ktextwidgets
-    - kde/kf6/kwallet
-    - kde/plasma/plasma-activities-stats
+    - qt6/qtlocation
+    - sonicde/sonic-activities-stats
+    - sonicde/sonic-daemon
+    - sonicde/sonic-frameworks-keyring
+    - sonicde/sonic-frameworks-qml-bridge
     - sonicde/sonic-frameworks-runner
+    - sonicde/sonic-frameworks-text-editor
+    - sonicde/sonic-frameworks-text-widgets
+    - sonicde/sonic-frameworks-ui-components
     - sonicde/sonic-interface-libraries
+    - sonicde/sonic-polkit
     - sonicde/sonic-screen
     - sonicde/sonic-screenlocker
     - sonicde/sonic-win

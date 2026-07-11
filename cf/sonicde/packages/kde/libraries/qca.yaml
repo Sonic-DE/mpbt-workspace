@@ -15,8 +15,8 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
     - qt6/qt5compat
+    - qt6/qtbase
 
 cmake-extra-args:
     - -DBUILD_WITH_QT6=ON

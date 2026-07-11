@@ -25,18 +25,18 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - sonicde/sonic-frameworks-cmake-modules
     - qt6/qttools
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - sys/libdrm
     - qt6/qtbase
     - qt6/qtdeclarative
-    - kde/kf6/kconfig
-    - kde/kf6/ki18n
-    - kde/kf6/kservice
-    - kde/kf6/kpackage
-    - kde/kf6/knewstuff
-    - kde/kf6/solid
+    - sonicde/sonic-frameworks-addons-downloader
+    - sonicde/sonic-frameworks-app-info
     - sonicde/sonic-frameworks-auth
     - sonicde/sonic-frameworks-core-addons
+    - sonicde/sonic-frameworks-device-integration
+    - sonicde/sonic-frameworks-internationalization
+    - sonicde/sonic-frameworks-package
+    - sonicde/sonic-frameworks-settings
+    - sys/libdrm

@@ -29,9 +29,9 @@ build-depends:
 
 depends:
     - kde/libraries/pulseaudio-qt
-    - kde/kf6/kdeclarative
-    - kde/kf6/kstatusnotifieritem
-    - kde/kf6/ksvg
+    - sonicde/sonic-frameworks-qml-bridge
+    - sonicde/sonic-frameworks-status-notification
+    - sonicde/sonic-frameworks-svg
     - sonicde/sonic-interface-libraries
 
 cmake-extra-args:

@@ -25,4 +25,8 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
+    - kde/pyside/pyside-setup
     - sonicde/sonic-frameworks-cmake-modules
+
+depends:
+    - qt6/qtbase

@@ -30,17 +30,17 @@ build-depends:
 depends:
     - qt6/qtbase
     - qt6/qttools
-    - kde/kf6/kconfig
-    - kde/kf6/kpackage
-    - kde/kf6/karchive
-    - kde/kf6/ki18n
-    - kde/kf6/kdbusaddons
-    - kde/kf6/kcmutils
-    - kde/kf6/kdeclarative
-    - kde/kf6/ksvg
-    - sonicde/sonic-frameworks-core-addons
-    - sonicde/sonic-frameworks-io
-    - sonicde/sonic-frameworks-windowsystem
+    - sonicde/sonic-frameworks-archive
     - sonicde/sonic-frameworks-auth
+    - sonicde/sonic-frameworks-core-addons
+    - sonicde/sonic-frameworks-dbus
+    - sonicde/sonic-frameworks-internationalization
+    - sonicde/sonic-frameworks-io
+    - sonicde/sonic-frameworks-package
+    - sonicde/sonic-frameworks-qml-bridge
+    - sonicde/sonic-frameworks-settings
+    - sonicde/sonic-frameworks-settings-utils
+    - sonicde/sonic-frameworks-svg
+    - sonicde/sonic-frameworks-windowsystem
     - sonicde/sonic-interface-libraries
     - sonicde/sonic-workspace

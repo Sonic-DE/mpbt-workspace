@@ -26,5 +26,5 @@ buildsystem: cmake
 
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules
-    - sys/libxslt
     - sys/docbook-xml
+    - sys/libxslt

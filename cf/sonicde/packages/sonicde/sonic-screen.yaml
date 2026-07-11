@@ -25,8 +25,8 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - kde/kf6/kconfig
     - sonicde/sonic-frameworks-cmake-modules
+    - sonicde/sonic-frameworks-settings
     - sonicde/sonic-interface-libraries
     - sonicde/sonic-screen-library
 

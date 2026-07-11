@@ -16,5 +16,5 @@ build-depends:
 
 depends:
     - qt6/qtbase
-    - kde/kf6/kconfig
+    - sonicde/sonic-frameworks-settings
     - sys/libnm

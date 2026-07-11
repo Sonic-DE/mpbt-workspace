@@ -31,11 +31,11 @@ build-depends:
 
 depends:
     - qt6/qtbase
-    - kde/kf6/kconfig
-    - kde/kf6/kcrash
-    - kde/kf6/kdbusaddons
-    - kde/kf6/kservice
+    - sonicde/sonic-frameworks-app-info
     - sonicde/sonic-frameworks-core-addons
-    - sonicde/sonic-frameworks-keybind
+    - sonicde/sonic-frameworks-crash-handler
+    - sonicde/sonic-frameworks-dbus
     - sonicde/sonic-frameworks-io
+    - sonicde/sonic-frameworks-keybind
+    - sonicde/sonic-frameworks-settings
     - sonicde/sonic-frameworks-windowsystem

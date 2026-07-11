@@ -29,15 +29,15 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - sys/libdrm
     - qt6/qtbase
     - qt6/qtsensors
-    - kde/kf6/kidletime
-    - kde/kf6/ksvg
-    - kde/kf6/kcmutils
-    - sonicde/sonic-keybind-daemon
     - sonicde/sonic-decoration
+    - sonicde/sonic-frameworks-idle-tracker
+    - sonicde/sonic-frameworks-settings-utils
+    - sonicde/sonic-frameworks-svg
+    - sonicde/sonic-keybind-daemon
     - sonicde/sonic-night-light
+    - sys/libdrm
 
 cmake-extra-args:
     - -DBUILD_TESTING=OFF

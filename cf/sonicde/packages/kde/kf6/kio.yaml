@@ -16,16 +16,16 @@ build-depends:
 
 depends:
     - qt6/qtbase
-    - kde/kf6/kservice
-    - kde/kf6/solid
-    - kde/kf6/kbookmarks
-    - kde/kf6/kcompletion
-    - kde/kf6/kitemviews
-    - kde/kf6/kjobwidgets
-    - kde/kf6/kcolorscheme
-    - kde/kf6/kiconthemes
-    - kde/kf6/kcrash
-    - kde/kf6/kdbusaddons
+    - sonicde/sonic-frameworks-app-info
+    - sonicde/sonic-frameworks-autocomplete
+    - sonicde/sonic-frameworks-bookmarks
+    - sonicde/sonic-frameworks-color-scheme
+    - sonicde/sonic-frameworks-crash-handler
+    - sonicde/sonic-frameworks-data-views
+    - sonicde/sonic-frameworks-dbus
+    - sonicde/sonic-frameworks-device-integration
+    - sonicde/sonic-frameworks-icon-themes
+    - sonicde/sonic-frameworks-progress-ui
     - sonicde/sonic-frameworks-windowsystem
 
 cmake-extra-args:

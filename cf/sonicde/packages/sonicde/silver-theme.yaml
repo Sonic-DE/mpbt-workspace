@@ -24,9 +24,9 @@ build-depends:
 
 depends:
     - qt6/qtbase
-    - kde/kf6/kcmutils
-    - kde/kf6/kiconthemes
-    - kde/kf6/kcolorscheme
+    - sonicde/sonic-decoration
+    - sonicde/sonic-frameworks-color-scheme
     - sonicde/sonic-frameworks-core-addons
     - sonicde/sonic-frameworks-gui-addons
-    - sonicde/sonic-decoration
+    - sonicde/sonic-frameworks-icon-themes
+    - sonicde/sonic-frameworks-settings-utils

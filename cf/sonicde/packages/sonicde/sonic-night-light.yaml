@@ -28,17 +28,17 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
+    - 3rdparty/qcoro6
     - qt6/qtbase
     - qt6/qtlocation
     - qt6/qtspeech
-    - kde/qcoro6
-    - kde/kf6/kdeclarative
-    - kde/kf6/kded
-    - kde/kf6/kparts
-    - kde/kf6/ktexteditor
-    - kde/kf6/kwallet
-    - kde/kf6/ktextwidgets
-    - kde/kf6/kstatusnotifieritem
-    - kde/kf6/kholidays
+    - sonicde/sonic-daemon
+    - sonicde/sonic-frameworks-holidays
+    - sonicde/sonic-frameworks-keyring
+    - sonicde/sonic-frameworks-qml-bridge
+    - sonicde/sonic-frameworks-status-notification
+    - sonicde/sonic-frameworks-text-editor
+    - sonicde/sonic-frameworks-text-widgets
+    - sonicde/sonic-frameworks-ui-components
     - sonicde/sonic-screen
     - sonicde/sonic-sysguard-library

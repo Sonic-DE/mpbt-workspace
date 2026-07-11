@@ -25,30 +25,30 @@ master_branch: master
 buildsystem: cmake
 
 depends:
-    - qt6/qtdeclarative
     - qt6/qt5compat
+    - qt6/qtdeclarative
     - qt6/qtsvg
-    - kde/kf6/ksvg
-    - kde/kf6/kcrash
-    - kde/kf6/knewstuff
-    - kde/kf6/knotifications
-    - kde/kf6/kcodecs
-    - kde/kf6/kdbusaddons
-    - kde/kf6/sonnet
-    - kde/kf6/kiconthemes
-    - kde/kf6/kxmlgui
-    - kde/kf6/kcmutils
-    - kde/kf6/knotifyconfig
-    - kde/plasma/plasma5support
-    - kde/plasma/plasma-activities-stats
+    - sonicde/sonic-activities-stats
+    - sonicde/sonic-frameworks-addons-downloader
     - sonicde/sonic-frameworks-auth
-    - sonicde/sonic-frameworks-keybind
-    - sonicde/sonic-frameworks-runner
+    - sonicde/sonic-frameworks-crash-handler
+    - sonicde/sonic-frameworks-dbus
+    - sonicde/sonic-frameworks-icon-themes
     - sonicde/sonic-frameworks-io
-    - sonicde/sonic-workspace
-    - sonicde/sonic-win
+    - sonicde/sonic-frameworks-keybind
+    - sonicde/sonic-frameworks-notification-settings
+    - sonicde/sonic-frameworks-notifications
+    - sonicde/sonic-frameworks-runner
+    - sonicde/sonic-frameworks-settings-utils
+    - sonicde/sonic-frameworks-spell-check
+    - sonicde/sonic-frameworks-svg
+    - sonicde/sonic-frameworks-text-codec
+    - sonicde/sonic-frameworks-xml-gui
     - sonicde/sonic-interface-libraries
+    - sonicde/sonic-plasma5-support-library
     - sonicde/sonic-screenlocker
+    - sonicde/sonic-win
+    - sonicde/sonic-workspace
 
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules

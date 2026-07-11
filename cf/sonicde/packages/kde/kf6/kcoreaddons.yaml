@@ -12,8 +12,8 @@ ref: ${kf6_version}
 buildsystem: cmake
 
 build-depends:
-    - sonicde/sonic-frameworks-cmake-modules
     - kde/pyside/pyside-setup
+    - sonicde/sonic-frameworks-cmake-modules
 
 depends:
     - qt6/qtbase
