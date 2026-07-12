@@ -122,7 +122,6 @@ build:
     - sonicde/sonic-mobile-interface
     - sonicde/sonic-network-manager
     - sonicde/sonic-oxygen
-    - sonicde/sonic-oxygen-cursors
     - sonicde/sonic-oxygen-icons
     - sonicde/sonic-oxygen-sounds
     - sonicde/sonic-partition-manager
@@ -139,10 +138,9 @@ build:
     - sonicde/sonic-screenies
     - sonicde/sonic-screenlocker
     - sonicde/sonic-silver
-    - sonicde/sonic-silver-cursors
     - sonicde/sonic-silver-gtk
     - sonicde/sonic-ssh-password-prompt
-    - sonicde/sonic-sysguard-library
+    - sonicde/sonic-system-monitor-library
     - sonicde/sonic-system-info
     - sonicde/sonic-system-monitor
     - sonicde/sonic-system-stats

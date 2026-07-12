@@ -42,4 +42,4 @@ depends:
     - sonicde/sonic-frameworks-status-notification
     - sonicde/sonic-frameworks-widgets-addons
     - sonicde/sonic-frameworks-windowsystem
-    - sonicde/sonic-silver-cursors
+    - sonicde/sonic-silver

@@ -28,4 +28,4 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - sonicde/sonic-silver-cursors
+    - sonicde/sonic-silver
