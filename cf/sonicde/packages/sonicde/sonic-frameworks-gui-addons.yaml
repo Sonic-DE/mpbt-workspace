@@ -28,5 +28,5 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/pyside/pyside-setup
+    - sonicde/sonic-pyside-setup
     - qt6/qtbase

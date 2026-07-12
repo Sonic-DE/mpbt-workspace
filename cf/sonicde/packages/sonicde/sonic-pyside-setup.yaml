@@ -1,14 +1,26 @@
 sources:
     git:
-        upstream-url: https://invent.kde.org/qt/pyside/pyside-setup.git
-        url:    ${ossqm_git}/pyside-setup.git
-        ref:    ${ref}
-        fetch:
-          - refs/heads/*:refs/remotes/origin/*
-          - refs/tags/*:refs/tags/*
+        ref: origin/${master_branch}
+        remotes:
+            origin:
+                url: ${sonicde_git}/${@basename}.git
+                depth: ${sonic_depth}
+                fetch: ${@SOLUTION::fetch::origin}
+            upstream:
+                url: https://invent.kde.org/qt/pyside/pyside-setup.git
+                depth: ${upstream_depth}
+                fetch: ${@SOLUTION::fetch::upstream}
+        config:
+            autopick.enabled: 'true'
+            autopick.upstream: upstream/6.11.1
+            autopick.master: origin/${master_branch}
+            autopick.tracker: origin/tracking/master
+            advice.detachedHead: 'false'
+            remote.origin.tagOpt: --no-tags
+            remote.upstream.tagOpt: --no-tags
+        local-branch: ${master_branch}
 
-#ref: v6.10.2
-ref: origin/maint/6.10.2
+master_branch: master
 
 buildsystem: cmake
 
