@@ -28,8 +28,8 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/kf6/syntax-highlighting
     - qt6/qtbase
     - qt6/qtspeech
     - sonicde/sonic-frameworks-auth
     - sonicde/sonic-frameworks-spell-check
+    - sonicde/sonic-frameworks-syntax-highlighting

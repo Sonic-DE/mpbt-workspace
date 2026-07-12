@@ -42,6 +42,7 @@ build:
     - sonicde/sonic-audio-applet-pulse
     - sonicde/sonic-bluetooth-runtime
     - sonicde/sonic-browser-integration
+    - sonicde/sonic-crypto-library
     - sonicde/sonic-daemon
     - sonicde/sonic-decoration
     - sonicde/sonic-desktop-interface
@@ -57,6 +58,7 @@ build:
     - sonicde/sonic-frameworks-archive
     - sonicde/sonic-frameworks-auth
     - sonicde/sonic-frameworks-autocomplete
+    - sonicde/sonic-frameworks-barcode
     - sonicde/sonic-frameworks-bluetooth
     - sonicde/sonic-frameworks-bookmarks
     - sonicde/sonic-frameworks-color-scheme
@@ -80,6 +82,8 @@ build:
     - sonicde/sonic-frameworks-keybind
     - sonicde/sonic-frameworks-keyring
     - sonicde/sonic-frameworks-keyring-pam
+    - sonicde/sonic-frameworks-modemmanager
+    - sonicde/sonic-frameworks-networkmanager
     - sonicde/sonic-frameworks-notification-settings
     - sonicde/sonic-frameworks-notifications
     - sonicde/sonic-frameworks-package
@@ -102,6 +106,7 @@ build:
     - sonicde/sonic-frameworks-sso
     - sonicde/sonic-frameworks-status-notification
     - sonicde/sonic-frameworks-svg
+    - sonicde/sonic-frameworks-syntax-highlighting
     - sonicde/sonic-frameworks-text-codec
     - sonicde/sonic-frameworks-text-editor
     - sonicde/sonic-frameworks-text-widgets
@@ -129,6 +134,7 @@ build:
     - sonicde/sonic-plasma5-support-library
     - sonicde/sonic-polkit
     - sonicde/sonic-polkit-agent
+    - sonicde/sonic-pulseaudio-library
     - sonicde/sonic-qt-accounts-library
     - sonicde/sonic-qt-theme-bridge
     - sonicde/sonic-quick-image-editor

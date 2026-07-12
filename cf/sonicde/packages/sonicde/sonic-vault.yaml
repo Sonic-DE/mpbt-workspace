@@ -28,7 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/kf6/networkmanager-qt
     - qt6/qtbase
     - qt6/qtdeclarative
     - sonicde/sonic-activities
@@ -40,6 +39,7 @@ depends:
     - sonicde/sonic-frameworks-device-integration
     - sonicde/sonic-frameworks-internationalization
     - sonicde/sonic-frameworks-io
+    - sonicde/sonic-frameworks-networkmanager
     - sonicde/sonic-frameworks-package
     - sonicde/sonic-frameworks-progress-ui
     - sonicde/sonic-frameworks-settings

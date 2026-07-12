@@ -28,7 +28,7 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/libraries/qca
     - qt6/qtbase
+    - sonicde/sonic-crypto-library
     - sys/libgcrypt
     - sys/libsecret-1

@@ -28,10 +28,10 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/kf6/prison
     - qt6/qtbase
     - qt6/qtdeclarative
     - qt6/qtmultimedia
+    - sonicde/sonic-frameworks-barcode
     - sonicde/sonic-frameworks-core-addons
     - sonicde/sonic-frameworks-crash-handler
     - sonicde/sonic-frameworks-dbus

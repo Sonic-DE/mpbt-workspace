@@ -28,7 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/kf6/networkmanager-qt
     - os-installed/libnl-3.0
     - os-installed/libsensors
     - qt6/qtbase
@@ -36,4 +35,5 @@ depends:
     - sonicde/sonic-frameworks-crash-handler
     - sonicde/sonic-frameworks-device-integration
     - sonicde/sonic-frameworks-io
+    - sonicde/sonic-frameworks-networkmanager
     - sonicde/sonic-system-monitor-library

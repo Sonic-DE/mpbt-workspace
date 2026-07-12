@@ -26,10 +26,10 @@ buildsystem: cmake
 
 depends:
     - 3rdparty/qcoro6
-    - kde/kf6/prison
     - qt6/qtlocation
     - sonicde/sonic-activities-stats
     - sonicde/sonic-daemon
+    - sonicde/sonic-frameworks-barcode
     - sonicde/sonic-frameworks-keyring
     - sonicde/sonic-frameworks-qml-bridge
     - sonicde/sonic-frameworks-runner

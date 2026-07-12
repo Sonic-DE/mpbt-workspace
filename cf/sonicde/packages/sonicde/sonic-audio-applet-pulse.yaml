@@ -28,11 +28,11 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/libraries/pulseaudio-qt
     - sonicde/sonic-frameworks-qml-bridge
     - sonicde/sonic-frameworks-status-notification
     - sonicde/sonic-frameworks-svg
     - sonicde/sonic-interface-libraries
+    - sonicde/sonic-pulseaudio-library
 
 cmake-extra-args:
     - -DBUILD_DOC=OFF

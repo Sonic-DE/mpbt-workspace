@@ -28,8 +28,8 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - kde/kf6/modemmanager-qt
-    - kde/kf6/networkmanager-qt
+    - sonicde/sonic-frameworks-modemmanager
+    - sonicde/sonic-frameworks-networkmanager
     - sonicde/sonic-frameworks-quick-ui-addons
     - sonicde/sonic-pipewire
     - sonicde/sonic-win
