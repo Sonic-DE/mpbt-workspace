@@ -125,6 +125,7 @@ sonic-silver-gtk
 sonic-ssh-password-prompt
 sonic-system-monitor-library
 sonic-system-info
+sonic-system-log
 sonic-system-monitor
 sonic-system-stats
 sonic-terminal

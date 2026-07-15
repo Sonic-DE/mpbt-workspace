@@ -148,6 +148,7 @@ build:
     - sonicde/sonic-ssh-password-prompt
     - sonicde/sonic-system-monitor-library
     - sonicde/sonic-system-info
+    - sonicde/sonic-system-log
     - sonicde/sonic-system-monitor
     - sonicde/sonic-system-stats
     - sonicde/sonic-terminal
