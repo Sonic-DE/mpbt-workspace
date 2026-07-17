@@ -95,6 +95,12 @@ CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || {
 }
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
 
+if git diff --quiet "$CURRENT_MASTER^" "$CURRENT_MASTER" \
+    "$CURRENT_UPSTREAM^" "$CURRENT_UPSTREAM"; then
+    msg "already synced (master and upstream tips have the same changes)"
+    exit 0
+fi
+
 if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
     # Check if the tracker commit's changes are actually in master
     # Use git log --cherry-mark to compare commits between tracker and master
@@ -107,10 +113,32 @@ if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
     fi
 fi
 
-# update tracker branch to latest upstream
+# Advance the tracker only through upstream patches present in the work branch.
 update_tracker() {
-    msg "=== updating tracker branch $AUTOPICK_TRACKER to ${CURRENT_UPSTREAM}"
-    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
+    local work_head=${1:-HEAD}
+    local matched_upstream
+
+    # The sync branch is rebased onto master, so its commits no longer have the
+    # same object IDs as upstream. Compare only the upstream range after the
+    # tracker. Commits unique to our master are expected and must not affect this.
+    matched_upstream=$CURRENT_TRACKER
+    while read -r upstream_commit; do
+        if [ "$upstream_commit" != "$work_head" ] && \
+            ! git cherry "$CURRENT_TRACKER" "$work_head" "$upstream_commit" \
+                | grep -q '^-'; then
+            break
+        fi
+        matched_upstream=$upstream_commit
+    done < <(git rev-list --reverse --ancestry-path \
+        "$CURRENT_TRACKER".."$AUTOPICK_UPSTREAM")
+
+    [ "$matched_upstream" ] \
+        || die "cant find an upstream commit matching the head of $work_head"
+    git merge-base --is-ancestor "$CURRENT_TRACKER" "$matched_upstream" \
+        || die "matched upstream commit $matched_upstream is behind tracker $CURRENT_TRACKER"
+
+    msg "=== updating tracker branch $AUTOPICK_TRACKER to ${matched_upstream}"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${matched_upstream}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
 }
 
 # check the remote temp branch:
@@ -152,7 +180,7 @@ check_work_waiting() {
             -B "$AUTOPICK_MASTER_BRANCH" \
             -H "$TEMP_BRANCH" \
             --reviewer "Sonic-DE/dev"
-        update_tracker
+        update_tracker origin/"$TEMP_BRANCH"
         exit 0
     fi
 
@@ -277,7 +305,7 @@ if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
     msg ">>> switching back to $AUTOPICK_MASTER and deleting $TEMP_BRANCH"
     git checkout -q "$AUTOPICK_MASTER"
     git branch -q -D "$TEMP_BRANCH"
-    update_tracker
+    update_tracker "$CURRENT_MASTER"
     exit 0
 fi
 
@@ -290,4 +318,4 @@ gh pr create -a "@me" \
     -B "$AUTOPICK_MASTER_BRANCH" \
     -H "$TEMP_BRANCH" \
     --reviewer "Sonic-DE/dev"
-update_tracker
+update_tracker "$TEMP_BRANCH"
