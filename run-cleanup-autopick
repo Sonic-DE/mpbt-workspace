@@ -7,6 +7,7 @@ REPOS="
     sonic-activity-manager-daemon
     sonic-audio-applet-pulse
     sonic-bluetooth-runtime
+    sonic-breeze
     sonic-browser-integration
     sonic-crypto-library
     sonic-daemon
@@ -134,7 +135,6 @@ REPOS="
     sonic-write-daemon
     xdg-desktop-portal-sonicde
     silver-sddm
-    silver-theme
 "
 
 for i in $REPOS ; do

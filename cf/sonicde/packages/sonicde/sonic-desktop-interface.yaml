@@ -25,6 +25,7 @@ master_branch: master
 buildsystem: cmake
 
 depends:
+    - sonicde/sonic-silver
     - qt6/qt5compat
     - qt6/qtdeclarative
     - qt6/qtsvg

@@ -3,7 +3,6 @@
 mirror.svn.kde-l10n
 mpbt-workspace
 silver-sddm
-silver-theme
 sonic
 sonic-accounts-integration
 sonic-activities
@@ -12,6 +11,7 @@ sonic-activity-manager-daemon
 sonic-audio-applet-pulse
 sonic-bluetooth-runtime
 sonic-branding
+sonic-breeze
 sonic-browser-integration
 sonic-crypto-library
 sonic-daemon

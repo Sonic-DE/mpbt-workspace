@@ -33,14 +33,13 @@ install-prefix: ${@PROJECT::@homedir}/SONICDE
 # what to build (can use packages or provides here)
 # just listing all sonic repos alphabetically here
 build:
-    - sonicde/silver-sddm
-    - sonicde/silver-theme
     - sonicde/sonic-accounts-integration
     - sonicde/sonic-activities
     - sonicde/sonic-activities-stats
     - sonicde/sonic-activity-manager-daemon
     - sonicde/sonic-audio-applet-pulse
     - sonicde/sonic-bluetooth-runtime
+    - sonicde/sonic-breeze
     - sonicde/sonic-browser-integration
     - sonicde/sonic-crypto-library
     - sonicde/sonic-daemon

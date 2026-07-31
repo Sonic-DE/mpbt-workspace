@@ -6,15 +6,9 @@ sources:
                 url: ${sonicde_git}/${@basename}.git
                 depth: ${sonic_depth}
                 fetch: ${@SOLUTION::fetch::origin}
-            upstream:
-                url: ${plasma_git}/breeze.git
-                depth: ${upstream_depth}
-                fetch: ${@SOLUTION::fetch::upstream}
         config:
-            autopick.enabled: 'true'
-            autopick.upstream: upstream/Plasma/6.7
+            autopick.enabled: 'false'
             autopick.master: origin/${master_branch}
-            autopick.tracker: origin/tracking/plasma-6.7
             advice.detachedHead: 'false'
             remote.origin.tagOpt: --no-tags
             remote.upstream.tagOpt: --no-tags
@@ -32,6 +26,7 @@ depends:
     - qt6/qtdeclarative
     - qt6/qtsvg
     - sonicde/sonic-decoration
+    - sonicde/sonic-interface-libraries
     - sonicde/sonic-frameworks-color-scheme
     - sonicde/sonic-frameworks-core-addons
     - sonicde/sonic-frameworks-gui-addons

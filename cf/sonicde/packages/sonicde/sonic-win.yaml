@@ -37,6 +37,7 @@ depends:
     - sonicde/sonic-frameworks-svg
     - sonicde/sonic-keybind-daemon
     - sonicde/sonic-night-light
+    - sonicde/sonic-silver
     - sys/libdrm
 
 cmake-extra-args:

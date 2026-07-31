@@ -28,6 +28,7 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
+    - sonicde/sonic-silver
     - qt6/qtbase
     - qt6/qttools
     - sonicde/sonic-frameworks-archive
