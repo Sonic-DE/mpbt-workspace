@@ -27,7 +27,6 @@ buildsystem: cmake
 depends:
     - sonicde/sonic-silver
     - 3rdparty/qcoro6
-    - qt6/qtlocation
     - sonicde/sonic-activities-stats
     - sonicde/sonic-daemon
     - sonicde/sonic-frameworks-barcode

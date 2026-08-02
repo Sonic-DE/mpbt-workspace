@@ -26,9 +26,6 @@ buildsystem: cmake
 
 depends:
     - sonicde/sonic-silver
-    - qt6/qt5compat
-    - qt6/qtdeclarative
-    - qt6/qtsvg
     - sonicde/sonic-activities-stats
     - sonicde/sonic-frameworks-addons-downloader
     - sonicde/sonic-frameworks-auth

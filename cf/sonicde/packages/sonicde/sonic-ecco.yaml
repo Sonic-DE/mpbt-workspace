@@ -28,8 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
-    - qt6/qtmultimedia
     - sonicde/sonic-frameworks-addons-downloader
     - sonicde/sonic-frameworks-bookmarks
     - sonicde/sonic-frameworks-color-scheme

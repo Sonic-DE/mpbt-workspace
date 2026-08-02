@@ -23,7 +23,3 @@ sources:
 master_branch: master
 
 buildsystem: cmake
-
-depends:
-    - qt6/qtbase
-    - qt6/qttools

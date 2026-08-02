@@ -27,8 +27,5 @@ buildsystem: cmake
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
-depends:
-    - qt6/qtdeclarative
-
 cmake-extra-args:
     - -DBUILD_TESTING=OFF

@@ -24,7 +24,5 @@ master_branch: master
 
 buildsystem: cmake
 
-depends:
-
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules

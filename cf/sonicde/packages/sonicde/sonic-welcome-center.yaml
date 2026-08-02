@@ -28,9 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
-    - qt6/qtdeclarative
-    - qt6/qtsvg
     - sonicde/sonic-file-search-ui
     - sonicde/sonic-frameworks-addons-downloader
     - sonicde/sonic-frameworks-core-addons

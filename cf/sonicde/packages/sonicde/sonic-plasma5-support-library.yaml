@@ -28,7 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
     - sonicde/sonic-frameworks-holidays
     - sonicde/sonic-frameworks-idle-tracker
     - sonicde/sonic-frameworks-unit-conversion

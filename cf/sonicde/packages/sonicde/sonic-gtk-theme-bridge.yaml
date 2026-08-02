@@ -29,8 +29,6 @@ build-depends:
 
 depends:
     - sonicde/sonic-silver-gtk
-    - qt6/qtbase
-    - qt6/qtsvg
     - sonicde/sonic-decoration
     - sonicde/sonic-frameworks-color-scheme
     - sonicde/sonic-frameworks-core-addons

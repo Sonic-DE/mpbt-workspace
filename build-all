@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+# Build all SonicDE packages through MPBT's dependency resolver.
+
+set -euo pipefail
+
+ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+SOLUTION="${SOLUTION:-cf/sonicde/solutions/devuan.yaml}"
+WORKDIR="${WORKDIR:-_WORK_}"
+CLEAN=false
+SYSTEM_INSTALL=false
+
+usage()
+{
+    cat <<'EOF'
+Usage: ./build-all [--clean] [--system]
+
+Build every package in cf/sonicde/solutions/devuan.yaml through MPBT. MPBT
+resolves depends/build-depends and builds against the shared SonicDE prefix.
+
+Options:
+  --clean    Remove MPBT build/install output before rebuilding.
+  --system   After a successful build, copy the resolved SonicDE prefix into /usr
+             using sudo. The build itself remains unprivileged.
+  -h, --help Show this help.
+
+Environment:
+  MPBT_BUILDER Override the mpbt-builder executable.
+  SOLUTION     Override the solution file.
+  WORKDIR      Override the MPBT work directory.
+EOF
+}
+
+while (($#)); do
+    case "$1" in
+        --clean)
+            CLEAN=true
+            shift
+            ;;
+        --system)
+            SYSTEM_INSTALL=true
+            shift
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            usage >&2
+            exit 2
+            ;;
+    esac
+done
+
+cd "$ROOT"
+[[ -f "$SOLUTION" ]] || { echo "Missing solution: $SOLUTION" >&2; exit 1; }
+
+# Guard the system-Qt policy before MPBT can fetch anything. Qt modules must
+# not be reachable from SonicDE or third-party package dependency manifests.
+if grep -R --include='*.yaml' -nE '^\s*-\s+qt6/' \
+    "$ROOT/cf/sonicde/packages/sonicde" \
+    "$ROOT/cf/sonicde/packages/3rdparty"; then
+    echo "Source-built Qt dependency found; build-all requires system Qt 6." >&2
+    exit 1
+fi
+
+# Ensure the required system Qt SDK is discoverable before starting a long
+# dependency-resolved build. cmake --find-package does not enable C/CXX before
+# loading Qt6Config and therefore fails inside FindThreads even when Qt is
+# correctly installed; use a real minimal configure instead.
+QT_PROBE_DIR=$(mktemp -d)
+trap 'rm -rf -- "$QT_PROBE_DIR"' EXIT
+cat >"$QT_PROBE_DIR/CMakeLists.txt" <<'EOF'
+cmake_minimum_required(VERSION 3.16)
+project(SystemQt6Probe LANGUAGES CXX)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+EOF
+if ! cmake -S "$QT_PROBE_DIR" -B "$QT_PROBE_DIR/build" >/dev/null; then
+    echo "System Qt 6 development files are not discoverable by CMake." >&2
+    exit 1
+fi
+
+MPBT_BUILDER=${MPBT_BUILDER:-}
+if [[ -z "$MPBT_BUILDER" ]]; then
+    if command -v mpbt-builder >/dev/null 2>&1; then
+        MPBT_BUILDER=$(command -v mpbt-builder)
+    elif [[ -x "$HOME/go/bin/mpbt-builder" ]]; then
+        MPBT_BUILDER="$HOME/go/bin/mpbt-builder"
+    else
+        echo "mpbt-builder not found; install it with:" >&2
+        echo "  go install github.com/metux/mpbt/cmd/mpbt-builder@latest" >&2
+        exit 1
+    fi
+fi
+
+if $CLEAN; then
+    rm -rf -- "$WORKDIR/build" "$WORKDIR/install"
+fi
+
+# Make local user tools visible to MPBT build processes and disable generation
+# of clang-format targets for this bulk build.
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
+export CMAKE_ARGS="${CMAKE_ARGS:-} -DKDE_CLANG_FORMAT_DISABLED=ON -DBUILD_TESTING=OFF"
+
+"$MPBT_BUILDER" \
+    -solution "$SOLUTION" \
+    -workdir "$WORKDIR" \
+    build
+
+if $SYSTEM_INSTALL; then
+    INSTALL_PREFIX=$(python3 - "$SOLUTION" <<'PY'
+import pathlib
+import re
+import sys
+
+text = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
+match = re.search(r"^install-prefix:\s*(.+?)\s*$", text, re.MULTILINE)
+if not match:
+    raise SystemExit("solution has no install-prefix")
+value = match.group(1)
+if "${@PROJECT::@homedir}" in value:
+    value = value.replace("${@PROJECT::@homedir}", str(pathlib.Path.home()))
+print(value)
+PY
+)
+    [[ -d "$INSTALL_PREFIX" ]] || { echo "Resolved install prefix does not exist: $INSTALL_PREFIX" >&2; exit 1; }
+    echo "Installing resolved SonicDE prefix from $INSTALL_PREFIX into /usr"
+    sudo cp -a "$INSTALL_PREFIX"/. /usr/
+fi

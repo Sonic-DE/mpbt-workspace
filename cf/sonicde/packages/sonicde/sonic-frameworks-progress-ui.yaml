@@ -26,7 +26,10 @@ buildsystem: cmake
 
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules
+    - sonicde/sonic-frameworks-core-addons
+    - sonicde/sonic-frameworks-widgets-addons
+    - sonicde/sonic-pyside-setup
+    - os-installed/python3-build
 
 depends:
-    - qt6/qtbase
     - sonicde/sonic-frameworks-notifications

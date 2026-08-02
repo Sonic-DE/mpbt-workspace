@@ -22,7 +22,4 @@ sources:
 
 master_branch: master
 
-buildsystem: qmake
-
-depends:
-    - qt6/qtbase
+buildsystem: cmake

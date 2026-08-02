@@ -28,6 +28,3 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
     - sonicde/sonic-frameworks-doctools
     - sys/libproxy
-
-depends:
-    - qt6/qtbase

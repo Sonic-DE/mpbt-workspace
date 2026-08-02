@@ -30,7 +30,6 @@ build-depends:
 depends:
     - os-installed/libnl-3.0
     - os-installed/libsensors
-    - qt6/qtbase
     - sonicde/sonic-frameworks-core-addons
     - sonicde/sonic-frameworks-crash-handler
     - sonicde/sonic-frameworks-device-integration

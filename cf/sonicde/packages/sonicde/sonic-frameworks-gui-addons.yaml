@@ -29,4 +29,3 @@ build-depends:
 
 depends:
     - sonicde/sonic-pyside-setup
-    - qt6/qtbase

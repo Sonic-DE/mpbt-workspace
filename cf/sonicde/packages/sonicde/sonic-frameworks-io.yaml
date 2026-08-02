@@ -28,7 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
     - sonicde/sonic-frameworks-app-info
     - sonicde/sonic-frameworks-autocomplete
     - sonicde/sonic-frameworks-bookmarks

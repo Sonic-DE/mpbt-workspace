@@ -25,7 +25,6 @@ master_branch: master
 buildsystem: cmake
 
 build-depends:
-    - qt6/qttools
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:

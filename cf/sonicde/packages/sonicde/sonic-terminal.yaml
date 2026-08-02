@@ -29,8 +29,6 @@ build-depends:
 
 depends:
     - 3rdparty/qcoro6
-    - qt6/qtbase
-    - qt6/qtmultimedia
     - sonicde/sonic-frameworks-addons-downloader
     - sonicde/sonic-frameworks-bookmarks
     - sonicde/sonic-frameworks-core-addons

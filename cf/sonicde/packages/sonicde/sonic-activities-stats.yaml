@@ -27,6 +27,3 @@ buildsystem: cmake
 build-depends:
     - sonicde/sonic-activities
     - sonicde/sonic-frameworks-cmake-modules
-
-depends:
-    - qt6/qtbase

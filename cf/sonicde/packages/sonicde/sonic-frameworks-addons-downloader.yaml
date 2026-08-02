@@ -28,7 +28,6 @@ build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
     - sonicde/sonic-frameworks-open-collab
     - sonicde/sonic-frameworks-package
     - sonicde/sonic-frameworks-widgets-addons

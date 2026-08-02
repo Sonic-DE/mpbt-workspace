@@ -1,6 +1,6 @@
 #
-# Build all SonicDE packages $HOME/SONICDE, along with dependencies
-# that we can't expect from the distro. (including Qt6).
+# Build all SonicDE packages into $HOME/SONICDE. Qt 6 is supplied by the
+# operating system and is deliberately not fetched or built by this solution.
 #
 # Yet just tested on Devuan Excalibur - other distros might require
 # some additional tweaking.
@@ -17,9 +17,6 @@ kf6_version: v6.27.0
 kdelibs_git: https://invent.kde.org/libraries/
 
 kdenet_git: https://invent.kde.org/network/
-
-qt6_version: v6.11.1
-qt6_git: git://code.qt.io/qt
 
 plasma_git: https://invent.kde.org/plasma/
 plasma_version: v6.7.0
@@ -133,11 +130,11 @@ build:
     - sonicde/sonic-plasma5-support-library
     - sonicde/sonic-polkit
     - sonicde/sonic-polkit-agent
+    - sonicde/sonic-pyside-setup
     - sonicde/sonic-pulseaudio-library
     - sonicde/sonic-qt-accounts-library
     - sonicde/sonic-qt-theme-bridge
     - sonicde/sonic-quick-image-editor
-    - sonicde/sonic-rdp
     - sonicde/sonic-screen
     - sonicde/sonic-screen-library
     - sonicde/sonic-screenies
@@ -164,9 +161,11 @@ build:
 
 # extra environment variables
 env:
-    PATH: '${install-prefix}/bin:/bin:/usr/bin'
+    PATH: '${install-prefix}/bin:/usr/lib/llvm/21/bin:/bin:/usr/bin'
     PKG_CONFIG_PATH: ${install-prefix}/share/pkgconfig:${install-prefix}/lib/pkgconfig:${install-prefix}/lib/${@PROJECT::@machine}/pkgconfig/
     ACLOCAL_PATH: ${install-prefix}/share/aclocal
+    LLVM_INSTALL_DIR: /usr/lib/llvm/21
+    CLANG_INSTALL_DIR: /usr/lib/llvm/21
 
 packages:
     - ${@PROJECT::@rootdir}/cf/sonicde/packages
@@ -185,8 +184,6 @@ package-defaults:
     kdenet_git: ${kdenet_git}
     kdelibs_git: ${kdelibs_git}
     kdelibs_force: true
-    qt6_git: ${qt6_git}
-    qt6_version: ${qt6_version}
     plasma_git: ${plasma_git}
     plasma_force: true
     plasma_version: ${plasma_version}

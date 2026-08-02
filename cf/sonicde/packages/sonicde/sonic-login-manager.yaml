@@ -29,8 +29,6 @@ build-depends:
 
 depends:
     - sonicde/sonic-silver
-    - qt6/qtbase
-    - qt6/qttools
     - sonicde/sonic-frameworks-archive
     - sonicde/sonic-frameworks-auth
     - sonicde/sonic-frameworks-core-addons

@@ -24,12 +24,15 @@ master_branch: master
 
 buildsystem: cmake
 
+build:
+    cmake:
+        args:
+            - -DENABLE_SYSTEMD_COREDUMP=OFF
+
 build-depends:
     - sonicde/sonic-frameworks-cmake-modules
 
 depends:
-    - qt6/qtbase
-    - qt6/qtdeclarative
     - sonicde/sonic-frameworks-core-addons
     - sonicde/sonic-frameworks-crash-handler
     - sonicde/sonic-frameworks-idle-tracker
