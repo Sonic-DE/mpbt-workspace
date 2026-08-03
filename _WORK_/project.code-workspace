@@ -1,0 +1,619 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": "."
+    },
+    {
+      "name": "3rdparty/libdrm",
+      "path": "sources/3rdparty/libdrm"
+    },
+    {
+      "name": "3rdparty/qcoro6",
+      "path": "sources/3rdparty/qcoro6"
+    },
+    {
+      "name": "Qt6/qt5compat",
+      "path": "sources/qt6/qt5compat"
+    },
+    {
+      "name": "Qt6/qtbase",
+      "path": "sources/qt6/qtbase"
+    },
+    {
+      "name": "Qt6/qtdeclarative",
+      "path": "sources/qt6/qtdeclarative"
+    },
+    {
+      "name": "Qt6/qtlocation",
+      "path": "sources/qt6/qtlocation"
+    },
+    {
+      "name": "Qt6/qtmultimedia",
+      "path": "sources/qt6/qtmultimedia"
+    },
+    {
+      "name": "Qt6/qtpositioning",
+      "path": "sources/qt6/qtpositioning"
+    },
+    {
+      "name": "Qt6/qtsensors",
+      "path": "sources/qt6/qtsensors"
+    },
+    {
+      "name": "Qt6/qtshadertools",
+      "path": "sources/qt6/qtshadertools"
+    },
+    {
+      "name": "Qt6/qtspeech",
+      "path": "sources/qt6/qtspeech"
+    },
+    {
+      "name": "Qt6/qtsvg",
+      "path": "sources/qt6/qtsvg"
+    },
+    {
+      "name": "Qt6/qttools",
+      "path": "sources/qt6/qttools"
+    },
+    {
+      "name": "Qt6/qtwebsockets",
+      "path": "sources/qt6/qtwebsockets"
+    },
+    {
+      "name": "SonicDE/silver-sddm",
+      "path": "sources/sonicde/silver-sddm"
+    },
+    {
+      "name": "SonicDE/silver-theme",
+      "path": "sources/sonicde/silver-theme"
+    },
+    {
+      "name": "SonicDE/sonic-accounts-integration",
+      "path": "sources/sonicde/sonic-accounts-integration"
+    },
+    {
+      "name": "SonicDE/sonic-activities",
+      "path": "sources/sonicde/sonic-activities"
+    },
+    {
+      "name": "SonicDE/sonic-activities-stats",
+      "path": "sources/sonicde/sonic-activities-stats"
+    },
+    {
+      "name": "SonicDE/sonic-activity-manager-daemon",
+      "path": "sources/sonicde/sonic-activity-manager-daemon"
+    },
+    {
+      "name": "SonicDE/sonic-audio-applet-pulse",
+      "path": "sources/sonicde/sonic-audio-applet-pulse"
+    },
+    {
+      "name": "SonicDE/sonic-bluetooth-runtime",
+      "path": "sources/sonicde/sonic-bluetooth-runtime"
+    },
+    {
+      "name": "SonicDE/sonic-breeze",
+      "path": "sources/sonicde/sonic-breeze"
+    },
+    {
+      "name": "SonicDE/sonic-browser-integration",
+      "path": "sources/sonicde/sonic-browser-integration"
+    },
+    {
+      "name": "SonicDE/sonic-crypto-library",
+      "path": "sources/sonicde/sonic-crypto-library"
+    },
+    {
+      "name": "SonicDE/sonic-daemon",
+      "path": "sources/sonicde/sonic-daemon"
+    },
+    {
+      "name": "SonicDE/sonic-decoration",
+      "path": "sources/sonicde/sonic-decoration"
+    },
+    {
+      "name": "SonicDE/sonic-desktop-interface",
+      "path": "sources/sonicde/sonic-desktop-interface"
+    },
+    {
+      "name": "SonicDE/sonic-disks",
+      "path": "sources/sonicde/sonic-disks"
+    },
+    {
+      "name": "SonicDE/sonic-dr-robotnik",
+      "path": "sources/sonicde/sonic-dr-robotnik"
+    },
+    {
+      "name": "SonicDE/sonic-drawing-tablet",
+      "path": "sources/sonicde/sonic-drawing-tablet"
+    },
+    {
+      "name": "SonicDE/sonic-ecco",
+      "path": "sources/sonicde/sonic-ecco"
+    },
+    {
+      "name": "SonicDE/sonic-exiv2-library",
+      "path": "sources/sonicde/sonic-exiv2-library"
+    },
+    {
+      "name": "SonicDE/sonic-file-search-ui",
+      "path": "sources/sonicde/sonic-file-search-ui"
+    },
+    {
+      "name": "SonicDE/sonic-firewall",
+      "path": "sources/sonicde/sonic-firewall"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-addons-downloader",
+      "path": "sources/sonicde/sonic-frameworks-addons-downloader"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-app-info",
+      "path": "sources/sonicde/sonic-frameworks-app-info"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-archive",
+      "path": "sources/sonicde/sonic-frameworks-archive"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-auth",
+      "path": "sources/sonicde/sonic-frameworks-auth"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-autocomplete",
+      "path": "sources/sonicde/sonic-frameworks-autocomplete"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-barcode",
+      "path": "sources/sonicde/sonic-frameworks-barcode"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-bluetooth",
+      "path": "sources/sonicde/sonic-frameworks-bluetooth"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-bookmarks",
+      "path": "sources/sonicde/sonic-frameworks-bookmarks"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-cmake-modules",
+      "path": "sources/sonicde/sonic-frameworks-cmake-modules"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-color-scheme",
+      "path": "sources/sonicde/sonic-frameworks-color-scheme"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-core-addons",
+      "path": "sources/sonicde/sonic-frameworks-core-addons"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-crash-handler",
+      "path": "sources/sonicde/sonic-frameworks-crash-handler"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-data-models",
+      "path": "sources/sonicde/sonic-frameworks-data-models"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-data-views",
+      "path": "sources/sonicde/sonic-frameworks-data-views"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-dbus",
+      "path": "sources/sonicde/sonic-frameworks-dbus"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-device-integration",
+      "path": "sources/sonicde/sonic-frameworks-device-integration"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-doctools",
+      "path": "sources/sonicde/sonic-frameworks-doctools"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-feeds",
+      "path": "sources/sonicde/sonic-frameworks-feeds"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-file-metadata",
+      "path": "sources/sonicde/sonic-frameworks-file-metadata"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-file-search",
+      "path": "sources/sonicde/sonic-frameworks-file-search"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-gui-addons",
+      "path": "sources/sonicde/sonic-frameworks-gui-addons"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-holidays",
+      "path": "sources/sonicde/sonic-frameworks-holidays"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-icon-themes",
+      "path": "sources/sonicde/sonic-frameworks-icon-themes"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-idle-tracker",
+      "path": "sources/sonicde/sonic-frameworks-idle-tracker"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-image-formats",
+      "path": "sources/sonicde/sonic-frameworks-image-formats"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-internationalization",
+      "path": "sources/sonicde/sonic-frameworks-internationalization"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-io",
+      "path": "sources/sonicde/sonic-frameworks-io"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-io-extras",
+      "path": "sources/sonicde/sonic-frameworks-io-extras"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-io-fuse",
+      "path": "sources/sonicde/sonic-frameworks-io-fuse"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-keybind",
+      "path": "sources/sonicde/sonic-frameworks-keybind"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-keyring",
+      "path": "sources/sonicde/sonic-frameworks-keyring"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-keyring-pam",
+      "path": "sources/sonicde/sonic-frameworks-keyring-pam"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-modemmanager",
+      "path": "sources/sonicde/sonic-frameworks-modemmanager"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-networkmanager",
+      "path": "sources/sonicde/sonic-frameworks-networkmanager"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-notification-settings",
+      "path": "sources/sonicde/sonic-frameworks-notification-settings"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-notifications",
+      "path": "sources/sonicde/sonic-frameworks-notifications"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-open-collab",
+      "path": "sources/sonicde/sonic-frameworks-open-collab"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-package",
+      "path": "sources/sonicde/sonic-frameworks-package"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-progress-ui",
+      "path": "sources/sonicde/sonic-frameworks-progress-ui"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-pseudo-terminal",
+      "path": "sources/sonicde/sonic-frameworks-pseudo-terminal"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-purpose",
+      "path": "sources/sonicde/sonic-frameworks-purpose"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-qml-bridge",
+      "path": "sources/sonicde/sonic-frameworks-qml-bridge"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-quick-charts",
+      "path": "sources/sonicde/sonic-frameworks-quick-charts"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-quick-desktop-style",
+      "path": "sources/sonicde/sonic-frameworks-quick-desktop-style"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-quick-silver-style",
+      "path": "sources/sonicde/sonic-frameworks-quick-silver-style"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-quick-ui",
+      "path": "sources/sonicde/sonic-frameworks-quick-ui"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-quick-ui-addons",
+      "path": "sources/sonicde/sonic-frameworks-quick-ui-addons"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-root-shell",
+      "path": "sources/sonicde/sonic-frameworks-root-shell"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-runner",
+      "path": "sources/sonicde/sonic-frameworks-runner"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-settings",
+      "path": "sources/sonicde/sonic-frameworks-settings"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-settings-ui",
+      "path": "sources/sonicde/sonic-frameworks-settings-ui"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-settings-utils",
+      "path": "sources/sonicde/sonic-frameworks-settings-utils"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-silver-icons",
+      "path": "sources/sonicde/sonic-frameworks-silver-icons"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-spell-check",
+      "path": "sources/sonicde/sonic-frameworks-spell-check"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-sso",
+      "path": "sources/sonicde/sonic-frameworks-sso"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-status-notification",
+      "path": "sources/sonicde/sonic-frameworks-status-notification"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-svg",
+      "path": "sources/sonicde/sonic-frameworks-svg"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-syntax-highlighting",
+      "path": "sources/sonicde/sonic-frameworks-syntax-highlighting"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-text-codec",
+      "path": "sources/sonicde/sonic-frameworks-text-codec"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-text-editor",
+      "path": "sources/sonicde/sonic-frameworks-text-editor"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-text-widgets",
+      "path": "sources/sonicde/sonic-frameworks-text-widgets"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-ui-components",
+      "path": "sources/sonicde/sonic-frameworks-ui-components"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-unit-conversion",
+      "path": "sources/sonicde/sonic-frameworks-unit-conversion"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-user-feedback",
+      "path": "sources/sonicde/sonic-frameworks-user-feedback"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-via",
+      "path": "sources/sonicde/sonic-frameworks-via"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-widgets-addons",
+      "path": "sources/sonicde/sonic-frameworks-widgets-addons"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-windowsystem",
+      "path": "sources/sonicde/sonic-frameworks-windowsystem"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-xml-gui",
+      "path": "sources/sonicde/sonic-frameworks-xml-gui"
+    },
+    {
+      "name": "SonicDE/sonic-frameworks-zeroconf",
+      "path": "sources/sonicde/sonic-frameworks-zeroconf"
+    },
+    {
+      "name": "SonicDE/sonic-gtk-theme-bridge",
+      "path": "sources/sonicde/sonic-gtk-theme-bridge"
+    },
+    {
+      "name": "SonicDE/sonic-interface-libraries",
+      "path": "sources/sonicde/sonic-interface-libraries"
+    },
+    {
+      "name": "SonicDE/sonic-keybind-daemon",
+      "path": "sources/sonicde/sonic-keybind-daemon"
+    },
+    {
+      "name": "SonicDE/sonic-l10n-templates",
+      "path": "sources/sonicde/sonic-l10n-templates"
+    },
+    {
+      "name": "SonicDE/sonic-launcher-menu-edit",
+      "path": "sources/sonicde/sonic-launcher-menu-edit"
+    },
+    {
+      "name": "SonicDE/sonic-login-manager",
+      "path": "sources/sonicde/sonic-login-manager"
+    },
+    {
+      "name": "SonicDE/sonic-mobile-interface",
+      "path": "sources/sonicde/sonic-mobile-interface"
+    },
+    {
+      "name": "SonicDE/sonic-network-manager",
+      "path": "sources/sonicde/sonic-network-manager"
+    },
+    {
+      "name": "SonicDE/sonic-night-light",
+      "path": "sources/sonicde/sonic-night-light"
+    },
+    {
+      "name": "SonicDE/sonic-oxygen",
+      "path": "sources/sonicde/sonic-oxygen"
+    },
+    {
+      "name": "SonicDE/sonic-oxygen-cursors",
+      "path": "sources/sonicde/sonic-oxygen-cursors"
+    },
+    {
+      "name": "SonicDE/sonic-oxygen-icons",
+      "path": "sources/sonicde/sonic-oxygen-icons"
+    },
+    {
+      "name": "SonicDE/sonic-oxygen-sounds",
+      "path": "sources/sonicde/sonic-oxygen-sounds"
+    },
+    {
+      "name": "SonicDE/sonic-partition-manager",
+      "path": "sources/sonicde/sonic-partition-manager"
+    },
+    {
+      "name": "SonicDE/sonic-pipewire",
+      "path": "sources/sonicde/sonic-pipewire"
+    },
+    {
+      "name": "SonicDE/sonic-plasma5-support-library",
+      "path": "sources/sonicde/sonic-plasma5-support-library"
+    },
+    {
+      "name": "SonicDE/sonic-polkit",
+      "path": "sources/sonicde/sonic-polkit"
+    },
+    {
+      "name": "SonicDE/sonic-polkit-agent",
+      "path": "sources/sonicde/sonic-polkit-agent"
+    },
+    {
+      "name": "SonicDE/sonic-pulseaudio-library",
+      "path": "sources/sonicde/sonic-pulseaudio-library"
+    },
+    {
+      "name": "SonicDE/sonic-pyside-setup",
+      "path": "sources/sonicde/sonic-pyside-setup"
+    },
+    {
+      "name": "SonicDE/sonic-qt-accounts-library",
+      "path": "sources/sonicde/sonic-qt-accounts-library"
+    },
+    {
+      "name": "SonicDE/sonic-qt-theme-bridge",
+      "path": "sources/sonicde/sonic-qt-theme-bridge"
+    },
+    {
+      "name": "SonicDE/sonic-quick-image-editor",
+      "path": "sources/sonicde/sonic-quick-image-editor"
+    },
+    {
+      "name": "SonicDE/sonic-rdp",
+      "path": "sources/sonicde/sonic-rdp"
+    },
+    {
+      "name": "SonicDE/sonic-screen",
+      "path": "sources/sonicde/sonic-screen"
+    },
+    {
+      "name": "SonicDE/sonic-screen-library",
+      "path": "sources/sonicde/sonic-screen-library"
+    },
+    {
+      "name": "SonicDE/sonic-screenies",
+      "path": "sources/sonicde/sonic-screenies"
+    },
+    {
+      "name": "SonicDE/sonic-screenlocker",
+      "path": "sources/sonicde/sonic-screenlocker"
+    },
+    {
+      "name": "SonicDE/sonic-silver",
+      "path": "sources/sonicde/sonic-silver"
+    },
+    {
+      "name": "SonicDE/sonic-silver-cursors",
+      "path": "sources/sonicde/sonic-silver-cursors"
+    },
+    {
+      "name": "SonicDE/sonic-silver-gtk",
+      "path": "sources/sonicde/sonic-silver-gtk"
+    },
+    {
+      "name": "SonicDE/sonic-ssh-password-prompt",
+      "path": "sources/sonicde/sonic-ssh-password-prompt"
+    },
+    {
+      "name": "SonicDE/sonic-sysguard-library",
+      "path": "sources/sonicde/sonic-sysguard-library"
+    },
+    {
+      "name": "SonicDE/sonic-system-info",
+      "path": "sources/sonicde/sonic-system-info"
+    },
+    {
+      "name": "SonicDE/sonic-system-monitor",
+      "path": "sources/sonicde/sonic-system-monitor"
+    },
+    {
+      "name": "SonicDE/sonic-system-monitor-library",
+      "path": "sources/sonicde/sonic-system-monitor-library"
+    },
+    {
+      "name": "SonicDE/sonic-system-stats",
+      "path": "sources/sonicde/sonic-system-stats"
+    },
+    {
+      "name": "SonicDE/sonic-terminal",
+      "path": "sources/sonicde/sonic-terminal"
+    },
+    {
+      "name": "SonicDE/sonic-terminal-tools",
+      "path": "sources/sonicde/sonic-terminal-tools"
+    },
+    {
+      "name": "SonicDE/sonic-thunderbolt",
+      "path": "sources/sonicde/sonic-thunderbolt"
+    },
+    {
+      "name": "SonicDE/sonic-vault",
+      "path": "sources/sonicde/sonic-vault"
+    },
+    {
+      "name": "SonicDE/sonic-welcome-center",
+      "path": "sources/sonicde/sonic-welcome-center"
+    },
+    {
+      "name": "SonicDE/sonic-win",
+      "path": "sources/sonicde/sonic-win"
+    },
+    {
+      "name": "SonicDE/sonic-workspace",
+      "path": "sources/sonicde/sonic-workspace"
+    },
+    {
+      "name": "SonicDE/sonic-workspace-addons",
+      "path": "sources/sonicde/sonic-workspace-addons"
+    },
+    {
+      "name": "SonicDE/sonic-workspace-wallpapers",
+      "path": "sources/sonicde/sonic-workspace-wallpapers"
+    },
+    {
+      "name": "SonicDE/sonic-write-daemon",
+      "path": "sources/sonicde/sonic-write-daemon"
+    },
+    {
+      "name": "SonicDE/xdg-desktop-portal-sonicde",
+      "path": "sources/sonicde/xdg-desktop-portal-sonicde"
+    }
+  ],
+  "settings": {
+    "git.autoRepositoryDetection": "subFolders"
+  }
+}
