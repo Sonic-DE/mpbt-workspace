@@ -129,7 +129,7 @@ update_tracker() {
     while read -r upstream_commit; do
         if [ "$upstream_commit" != "$work_head" ] && \
             ! git cherry "$CURRENT_TRACKER" "$work_head" "$upstream_commit" \
-                | grep -q '^-'; then
+                | grep -q '^='; then
             break
         fi
         matched_upstream=$upstream_commit
