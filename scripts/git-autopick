@@ -95,8 +95,12 @@ CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || {
 }
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
 
-if git diff --quiet "$CURRENT_MASTER^" "$CURRENT_MASTER" \
-    "$CURRENT_UPSTREAM^" "$CURRENT_UPSTREAM"; then
+# Check if master tip and upstream tip introduce the same changes.
+# git diff A B C D treats C and D as path filters, not a second diff pair,
+# so we compare the two patches via git patch-id instead.
+master_pid=$(git diff "$CURRENT_MASTER^..$CURRENT_MASTER" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
+upstream_pid=$(git diff "$CURRENT_UPSTREAM^..$CURRENT_UPSTREAM" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
+if [ -n "$master_pid" ] && [ "$master_pid" = "$upstream_pid" ]; then
     msg "already synced (master and upstream tips have the same changes)"
     exit 0
 fi
