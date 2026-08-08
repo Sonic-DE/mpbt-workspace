@@ -3,6 +3,6 @@
 export PATH="$PATH:$HOME/go/bin"
 
 mpbt-builder \
-    -solution cf/sonicde/solutions/sonicde.yaml \
+    -solution config/sonicde/solutions/sonicde.yaml \
     -workdir _WORK_ \
     fetch

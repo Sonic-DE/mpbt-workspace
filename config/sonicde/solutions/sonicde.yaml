@@ -168,7 +168,7 @@ env:
     CLANG_INSTALL_DIR: /usr/lib/llvm/21
 
 packages:
-    - ${@PROJECT::@rootdir}/cf/sonicde/packages
+    - ${@PROJECT::@rootdir}/config/sonicde/packages
 
 # these are injected as default values into each individual package
 package-defaults:

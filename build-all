@@ -4,7 +4,7 @@
 set -euo pipefail
 
 ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-SOLUTION="${SOLUTION:-cf/sonicde/solutions/sonicde.yaml}"
+SOLUTION="${SOLUTION:-config/sonicde/solutions/sonicde.yaml}"
 WORKDIR="${WORKDIR:-_WORK_}"
 CLEAN=false
 SYSTEM_INSTALL=false
@@ -14,7 +14,7 @@ usage()
     cat <<'EOF'
 Usage: ./build-all [--clean] [--system]
 
-Build every package in cf/sonicde/solutions/sonicde.yaml through MPBT. MPBT
+Build every package in config/sonicde/solutions/sonicde.yaml through MPBT. MPBT
 resolves depends/build-depends and builds against the shared SonicDE prefix.
 
 Options:
@@ -58,8 +58,8 @@ cd "$ROOT"
 # Guard the system-Qt policy before MPBT can fetch anything. Qt modules must
 # not be reachable from SonicDE or third-party package dependency manifests.
 if grep -R --include='*.yaml' -nE '^\s*-\s+qt6/' \
-    "$ROOT/cf/sonicde/packages/sonicde" \
-    "$ROOT/cf/sonicde/packages/3rdparty"; then
+    "$ROOT/config/sonicde/packages/sonicde" \
+    "$ROOT/config/sonicde/packages/3rdparty"; then
     echo "Source-built Qt dependency found; build-all requires system Qt 6." >&2
     exit 1
 fi

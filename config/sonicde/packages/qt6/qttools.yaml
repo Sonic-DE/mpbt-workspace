@@ -6,7 +6,7 @@ sources:
         fetch:
           - refs/tags/${ref}:refs/tags/${ref}
         post-checkout-cmd:
-          - ${@PROJECT::@rootdir}/cf/sonicde/scripts/post-clone-submodules.sh
+          - ${@PROJECT::@rootdir}/config/sonicde/scripts/post-clone-submodules.sh
 
 ref: ${qt6_version}
 
