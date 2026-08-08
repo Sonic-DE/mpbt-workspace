@@ -65,10 +65,6 @@
       "path": "sources/sonicde/silver-sddm"
     },
     {
-      "name": "SonicDE/silver-theme",
-      "path": "sources/sonicde/silver-theme"
-    },
-    {
       "name": "SonicDE/sonic-accounts-integration",
       "path": "sources/sonicde/sonic-accounts-integration"
     },
