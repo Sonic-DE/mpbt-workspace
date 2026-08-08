@@ -13,54 +13,6 @@
       "path": "sources/3rdparty/qcoro6"
     },
     {
-      "name": "Qt6/qt5compat",
-      "path": "sources/qt6/qt5compat"
-    },
-    {
-      "name": "Qt6/qtbase",
-      "path": "sources/qt6/qtbase"
-    },
-    {
-      "name": "Qt6/qtdeclarative",
-      "path": "sources/qt6/qtdeclarative"
-    },
-    {
-      "name": "Qt6/qtlocation",
-      "path": "sources/qt6/qtlocation"
-    },
-    {
-      "name": "Qt6/qtmultimedia",
-      "path": "sources/qt6/qtmultimedia"
-    },
-    {
-      "name": "Qt6/qtpositioning",
-      "path": "sources/qt6/qtpositioning"
-    },
-    {
-      "name": "Qt6/qtsensors",
-      "path": "sources/qt6/qtsensors"
-    },
-    {
-      "name": "Qt6/qtshadertools",
-      "path": "sources/qt6/qtshadertools"
-    },
-    {
-      "name": "Qt6/qtspeech",
-      "path": "sources/qt6/qtspeech"
-    },
-    {
-      "name": "Qt6/qtsvg",
-      "path": "sources/qt6/qtsvg"
-    },
-    {
-      "name": "Qt6/qttools",
-      "path": "sources/qt6/qttools"
-    },
-    {
-      "name": "Qt6/qtwebsockets",
-      "path": "sources/qt6/qtwebsockets"
-    },
-    {
       "name": "SonicDE/silver-sddm",
       "path": "sources/sonicde/silver-sddm"
     },
