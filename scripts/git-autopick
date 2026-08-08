@@ -117,32 +117,13 @@ if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
     fi
 fi
 
-# Advance the tracker only through upstream patches present in the work branch.
+# After a successful rebase, advance the tracker to the upstream tip.
+# The work branch was checked out from AUTOPICK_UPSTREAM and rebased onto
+# master. Every commit in tracker..upstream was processed — applied or dropped.
+# The tracker advances to the upstream tip so processed commits aren't retried.
 update_tracker() {
-    local work_head=${1:-HEAD}
-    local matched_upstream
-
-    # The sync branch is rebased onto master, so its commits no longer have the
-    # same object IDs as upstream. Compare only the upstream range after the
-    # tracker. Commits unique to our master are expected and must not affect this.
-    matched_upstream=$CURRENT_TRACKER
-    while read -r upstream_commit; do
-        if [ "$upstream_commit" != "$work_head" ] && \
-            ! git cherry "$CURRENT_TRACKER" "$work_head" "$upstream_commit" \
-                | grep -q '^='; then
-            break
-        fi
-        matched_upstream=$upstream_commit
-    done < <(git rev-list --reverse --ancestry-path \
-        "$CURRENT_TRACKER".."$AUTOPICK_UPSTREAM")
-
-    [ "$matched_upstream" ] \
-        || die "cant find an upstream commit matching the head of $work_head"
-    git merge-base --is-ancestor "$CURRENT_TRACKER" "$matched_upstream" \
-        || die "matched upstream commit $matched_upstream is behind tracker $CURRENT_TRACKER"
-
-    msg "=== updating tracker branch $AUTOPICK_TRACKER to ${matched_upstream}"
-    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${matched_upstream}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
+    msg "=== updating tracker branch $AUTOPICK_TRACKER to $CURRENT_UPSTREAM"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
 }
 
 # check the remote temp branch:
