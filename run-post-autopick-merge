@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Run after all autopick PRs have been merged. Fetches origin and resets each
+# repo to the tip of origin/master so the working tree reflects the merged PRs.
+
+REPOS=$(cat "$(dirname "$0")/repo-list")
+
+for i in $REPOS ; do
+    dir="_WORK_/sources/sonicde/$i"
+    [ -d "$dir/.git" ] || continue
+    cd "$dir" || continue
+
+    echo "=== $i : fetching origin, resetting to origin/master, removing sync branches ==="
+
+    git fetch --quiet --prune origin
+    git checkout -q origin/master 2>/dev/null || true
+    git reset --hard origin/master 2>/dev/null || echo "  failed to reset to origin/master"
+
+    # Delete the local sync branch if it exists (already merged remotely)
+    if git show-ref --verify --quiet "refs/heads/pr/sync-with-upstream"; then
+        git branch -D "pr/sync-with-upstream" 2>/dev/null || echo "  failed to delete local branch pr/sync-with-upstream"
+    fi
+
+    cd - >/dev/null
+done
+
+echo ""
+echo "Done. All repos reset to origin/master."
