@@ -4,7 +4,7 @@
 set -euo pipefail
 
 ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-SOLUTION="${SOLUTION:-cf/sonicde/solutions/devuan.yaml}"
+SOLUTION="${SOLUTION:-cf/sonicde/solutions/sonicde.yaml}"
 WORKDIR="${WORKDIR:-_WORK_}"
 CLEAN=false
 SYSTEM_INSTALL=false
@@ -14,7 +14,7 @@ usage()
     cat <<'EOF'
 Usage: ./build-all [--clean] [--system]
 
-Build every package in cf/sonicde/solutions/devuan.yaml through MPBT. MPBT
+Build every package in cf/sonicde/solutions/sonicde.yaml through MPBT. MPBT
 resolves depends/build-depends and builds against the shared SonicDE prefix.
 
 Options:

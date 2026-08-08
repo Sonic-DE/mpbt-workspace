@@ -28,7 +28,7 @@ jobs:
                     git config --global init.defaultBranch master ;
                     ~/go/bin/mpbt-builder \
                         -root . \
-                        -solution cf/sonicde/solutions/devuan.yaml \
+                        -solution cf/sonicde/solutions/sonicde.yaml \
                         -solution-define sonicde_git=https://github.com/Sonic-DE \
                         -solution-define ossqm_git=https://github.com/oss-qm \
                         fetch

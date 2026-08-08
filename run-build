@@ -3,7 +3,7 @@
 export PATH="$PATH:$HOME/go/bin"
 
 mpbt-builder \
-    -solution cf/sonicde/solutions/devuan.yaml \
+    -solution cf/sonicde/solutions/sonicde.yaml \
     -workdir _WORK_ \
     build
 
