@@ -261,6 +261,10 @@
       "path": "sources/sonicde/sonic-frameworks-qml-bridge"
     },
     {
+      "name": "SonicDE/sonic-frameworks-qt-integration",
+      "path": "sources/sonicde/sonic-frameworks-qt-integration"
+    },
+    {
       "name": "SonicDE/sonic-frameworks-quick-charts",
       "path": "sources/sonicde/sonic-frameworks-quick-charts"
     },

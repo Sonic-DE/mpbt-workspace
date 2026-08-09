@@ -87,6 +87,7 @@ build:
     - sonicde/sonic-frameworks-pseudo-terminal
     - sonicde/sonic-frameworks-purpose
     - sonicde/sonic-frameworks-qml-bridge
+    - sonicde/sonic-frameworks-qt-integration
     - sonicde/sonic-frameworks-quick-charts
     - sonicde/sonic-frameworks-quick-desktop-style
     - sonicde/sonic-frameworks-quick-silver-style
