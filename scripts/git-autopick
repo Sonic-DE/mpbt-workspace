@@ -95,6 +95,17 @@ CURRENT_TRACKER=`git rev-parse "$AUTOPICK_TRACKER" 2>/dev/null` || {
 }
 CURRENT_MASTER=`git rev-parse "$AUTOPICK_MASTER" 2>/dev/null` || die "cant get our master branch SHA"
 
+# After a successful rebase, advance the tracker to the upstream tip.
+# The work branch was checked out from AUTOPICK_UPSTREAM and rebased onto
+# master. Every commit in tracker..upstream was processed — applied or dropped.
+# The tracker advances to the upstream tip so processed commits aren't retried.
+# The tracker is always set to an upstream target (CURRENT_UPSTREAM), never to
+# the rebased work branch or master, so progress is marked on the upstream line.
+update_tracker() {
+    msg "=== updating tracker branch $AUTOPICK_TRACKER to $CURRENT_UPSTREAM"
+    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
+}
+
 # Check if master tip and upstream tip introduce the same changes.
 # git diff A B C D treats C and D as path filters, not a second diff pair,
 # so we compare the two patches via git patch-id instead.
@@ -102,6 +113,7 @@ master_pid=$(git diff "$CURRENT_MASTER^..$CURRENT_MASTER" | git patch-id --stabl
 upstream_pid=$(git diff "$CURRENT_UPSTREAM^..$CURRENT_UPSTREAM" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
 if [ -n "$master_pid" ] && [ "$master_pid" = "$upstream_pid" ]; then
     msg "already synced (master and upstream tips have the same changes)"
+    update_tracker
     exit 0
 fi
 
@@ -116,15 +128,6 @@ if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
         exit 0
     fi
 fi
-
-# After a successful rebase, advance the tracker to the upstream tip.
-# The work branch was checked out from AUTOPICK_UPSTREAM and rebased onto
-# master. Every commit in tracker..upstream was processed — applied or dropped.
-# The tracker advances to the upstream tip so processed commits aren't retried.
-update_tracker() {
-    msg "=== updating tracker branch $AUTOPICK_TRACKER to $CURRENT_UPSTREAM"
-    git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
-}
 
 # check the remote temp branch:
 # - if it exists with unmerged commits and no PR, create a PR and exit
@@ -165,7 +168,7 @@ check_work_waiting() {
             -B "$AUTOPICK_MASTER_BRANCH" \
             -H "$TEMP_BRANCH" \
             --reviewer "Sonic-DE/dev"
-        update_tracker origin/"$TEMP_BRANCH"
+        update_tracker
         exit 0
     fi
 
@@ -290,7 +293,7 @@ if [ "$CURRENT_WORK" == "$CURRENT_MASTER" ]; then
     msg ">>> switching back to $AUTOPICK_MASTER and deleting $TEMP_BRANCH"
     git checkout -q "$AUTOPICK_MASTER"
     git branch -q -D "$TEMP_BRANCH"
-    update_tracker "$CURRENT_MASTER"
+    update_tracker
     exit 0
 fi
 
@@ -303,4 +306,4 @@ gh pr create -a "@me" \
     -B "$AUTOPICK_MASTER_BRANCH" \
     -H "$TEMP_BRANCH" \
     --reviewer "Sonic-DE/dev"
-update_tracker "$TEMP_BRANCH"
+update_tracker
