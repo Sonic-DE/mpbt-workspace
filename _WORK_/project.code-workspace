@@ -461,8 +461,8 @@
       "path": "sources/sonicde/sonic-quick-image-editor"
     },
     {
-      "name": "SonicDE/sonic-rdp",
-      "path": "sources/sonicde/sonic-rdp"
+      "name": "SonicDE/sonic-rdp-server",
+      "path": "sources/sonicde/sonic-rdp-server"
     },
     {
       "name": "SonicDE/sonic-screen",
