@@ -106,17 +106,6 @@ update_tracker() {
     git push -q "$AUTOPICK_TRACKER_REMOTE" "+${CURRENT_UPSTREAM}:refs/heads/${AUTOPICK_TRACKER_BRANCH}"
 }
 
-# Check if master tip and upstream tip introduce the same changes.
-# git diff A B C D treats C and D as path filters, not a second diff pair,
-# so we compare the two patches via git patch-id instead.
-master_pid=$(git diff "$CURRENT_MASTER^..$CURRENT_MASTER" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
-upstream_pid=$(git diff "$CURRENT_UPSTREAM^..$CURRENT_UPSTREAM" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
-if [ -n "$master_pid" ] && [ "$master_pid" = "$upstream_pid" ]; then
-    msg "already synced (master and upstream tips have the same changes)"
-    update_tracker
-    exit 0
-fi
-
 if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
     # Check if the tracker commit's changes are actually in master
     # Use git log --cherry-mark to compare commits between tracker and master
@@ -127,6 +116,17 @@ if [ "$CURRENT_UPSTREAM" == "$CURRENT_TRACKER" ]; then
         msg "already synced"
         exit 0
     fi
+fi
+
+# Check if master tip and upstream tip introduce the same changes.
+# git diff A B C D treats C and D as path filters, not a second diff pair,
+# so we compare the two patches via git patch-id instead.
+master_pid=$(git diff "$CURRENT_MASTER^..$CURRENT_MASTER" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
+upstream_pid=$(git diff "$CURRENT_UPSTREAM^..$CURRENT_UPSTREAM" | git patch-id --stable 2>/dev/null | cut -d' ' -f1)
+if [ -n "$master_pid" ] && [ "$master_pid" = "$upstream_pid" ]; then
+    msg "already synced (master and upstream tips have the same changes)"
+    update_tracker
+    exit 0
 fi
 
 # check the remote temp branch:
