@@ -33,6 +33,7 @@ depends:
     - sys/libavfilter
     - sys/libavformat
     - sys/libpipewire-0.3
+    - sonicde/xdg-desktop-portal-sonicde
 
 cmake-extra-args:
     - -DBUILD_TESTING=OFF # needs wayland
